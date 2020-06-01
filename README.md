@@ -44,7 +44,7 @@ The playbook is fully idempotent and can be safely used multiple times.
 
 $ cat kubernetes.yml
 
--  name: ------------ | Kuberenetes Cluster Deployment | -------------------
+ -  name: ------------ | Kuberenetes Cluster Deployment | -------------------
    hosts: kub
    become: all
    pre_tasks:
