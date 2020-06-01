@@ -23,8 +23,8 @@ INVENTORY SETUP
 One can use it's own inventory or create it's own inventory.
 Replace the hostnames in "inventory" file present here with hostnames of your environment. You can leave [kub] as it is if you are not making any changes in playbook.
 
-PLAYBOOK EXECUTION
--------------------
+PLAYBOOK EXECUTION/USAGE
+------------------------
 
 kubernetes.yml is the main playbook, you can execute it using
 
@@ -44,25 +44,25 @@ The playbook is fully idempotent and can be safely used multiple times.
 
 $ cat kubernetes.yml
 
- -  name: ------------ | Kuberenetes Cluster Deployment | -------------------
+   name: ------------ | Kuberenetes Cluster Deployment | -------------------
    hosts: kub
    become: all
    pre_tasks:
-  - name: Pre-Requisite-1 |Switching off swap|
+    name: Pre-Requisite-1 |Switching off swap|
     shell: swapoff -a
     when: ansible_swaptotal_mb > 0
-  - name: Pre-Requisite-2 |Gathering selinux status|
+    name: Pre-Requisite-2 |Gathering selinux status|
     shell: getenforce | grep -i Enforcing | wc -l
     register: se_status
-  - name: Pre-Requisite-3 |Switching off selinux|
+    name: Pre-Requisite-3 |Switching off selinux|
     shell: setenforce 0
     when: se_status.stdout == '1'
 
   roles:
-  - deploy_kubernetes
+    deploy_kubernetes
 
   post_tasks:
-  - name: Post-Requisite Configuring |weave| network
+    name: Post-Requisite Configuring |weave| network
     shell: kubectl apply -f https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n') >> /tmp/weave_network.txt
     args:
       creates: /tmp/weave_network.txt
