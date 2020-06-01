@@ -44,10 +44,10 @@ The playbook is fully idempotent and can be safely used multiple times.
 
 $ cat kubernetes.yml
 
-- name: ------------ | Kuberenetes Cluster Deployment | -------------------
-  hosts: kub
-  become: all
-  pre_tasks:
+-  name: ------------ | Kuberenetes Cluster Deployment | -------------------
+   hosts: kub
+   become: all
+   pre_tasks:
   - name: Pre-Requisite-1 |Switching off swap|
     shell: swapoff -a
     when: ansible_swaptotal_mb > 0
@@ -71,4 +71,4 @@ $ cat kubernetes.yml
 
 AUTHOR
 ========
-This playbook is written by Hemant Gangwar, you can read more about author at https://learningtechnix.wordpress.com
+This playbook is written by Hemant Gangwar, you can read more about author at https://learningtechnix.wordpress.com or follow on LinkedIN https://www.linkedin.com/in/hemant-gangwar-6a677b19/
