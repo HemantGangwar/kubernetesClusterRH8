@@ -1,0 +1,24 @@
+---
+
+  - name: 13.1. Kubernetes initialization on master
+    shell: kubeadm init
+    register: kubeadmin_init
+    when: not kubernetes_init_stat.stat.exists
+
+
+  - name: 13.2. Creating requird directory structure
+    shell: "{{ item }}"
+    with_items:
+    - "{{ POST_INITIALIZATION_COMMANDS }}"
+    when: not kubernetes_init_stat.stat.exists
+
+  - name: 13.3. Generate join command
+    command: kubeadm token create --print-join-command
+    register: joinWorkerNodes
+
+  - name: 13.4. Setting up the command use globally
+    set_fact: 
+      kubernetes_join_workers: "{{ joinWorkerNodes.stdout }}"
+      delegate_to: groups['kub']
+      delegate_facts: true
+    when: joinWorkerNodes.stdout is defined

@@ -1,0 +1,5 @@
+---
+- name: 14.1 Joining Worker to | Kubernetes | cluster
+  shell: "{{ hostvars['nodea.lab.example.com'].kubernetes_join_workers }}"
+  args:
+    creates: /etc/kubernetes/kubelet.conf

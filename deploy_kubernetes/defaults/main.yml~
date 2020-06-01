@@ -1,0 +1,23 @@
+---
+# default variable file for deploy_kubernetes
+
+# NODE specific variables #
+
+KUBERNETES_MASTER: nodea.lab.example.com
+
+KUBERNETES_NODE_1: node11.lab.example.com
+
+KUBERNETES_NODE_2: node12.lab.example.com
+
+FIREWALL_PORTS_MASTER:
+ - 6443
+ - 2379-2380
+ - 10250
+ - 10251
+ - 10252
+
+FIREWALL_PORTS_WORKER:
+ - 10250
+ - 10255
+ - 30000-32767
+ - 6783

@@ -1,0 +1,33 @@
+---
+# vars file for deploy_kubernetes
+#
+
+FIREWALL_PORTS_MASTER:
+ - 6443
+ - 2379-2380
+ - 10250
+ - 10251
+ - 10252
+ - 80
+ - 8080
+
+FIREWALL_PORTS_WORKER:
+ - 10250
+ - 10255
+ - 30000-32767
+ - 6783
+ - 80
+ - 8080
+
+SYSCTL_NF_CALL_RULES:
+ - net.bridge.bridge-nf-call-ip6tables
+ - net.bridge.bridge-nf-call-iptables
+
+KUBERNET_SERVICES:
+ - docker
+ - kubelet
+
+POST_INITIALIZATION_COMMANDS:
+ - "mkdir -p ~/.kube"
+ - "sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config"
+ - "sudo chown $(id -u):$(id -g) ~/.kube/config"

@@ -1,0 +1,937 @@
+2020-05-31 17:13:09,283 p=24215 u=root n=ansible | PLAY [------------ | Kuberenetes Cluster Deployment | -------------------] ***********************************************************
+2020-05-31 17:13:09,297 p=24215 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************
+2020-05-31 17:13:11,007 p=24215 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-05-31 17:13:11,065 p=24215 u=root n=ansible | ok: [node11.lab.example.com]
+2020-05-31 17:13:11,094 p=24215 u=root n=ansible | ok: [node12.lab.example.com]
+2020-05-31 17:13:11,115 p=24215 u=root n=ansible | TASK [Pre-Requisite-1 |Switching off swap|] ******************************************************************************************
+2020-05-31 17:13:11,182 p=24215 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-05-31 17:13:11,182 p=24215 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-05-31 17:13:11,209 p=24215 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-05-31 17:13:11,230 p=24215 u=root n=ansible | TASK [Pre-Requisite-2 |Gathering selinux status|] ************************************************************************************
+2020-05-31 17:13:11,758 p=24215 u=root n=ansible | changed: [node12.lab.example.com]
+2020-05-31 17:13:11,762 p=24215 u=root n=ansible | changed: [node11.lab.example.com]
+2020-05-31 17:13:11,771 p=24215 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-05-31 17:13:11,792 p=24215 u=root n=ansible | TASK [Pre-Requisite-3 |Switching off selinux|] ***************************************************************************************
+2020-05-31 17:13:11,869 p=24215 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-05-31 17:13:11,869 p=24215 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-05-31 17:13:11,894 p=24215 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-05-31 17:13:11,917 p=24215 u=root n=ansible | TASK [deploy_kubernetes : 1. Permanently disabling Selinux] **************************************************************************
+2020-05-31 17:13:12,927 p=24215 u=root n=ansible | ok: [node12.lab.example.com]
+2020-05-31 17:13:12,927 p=24215 u=root n=ansible | ok: [node11.lab.example.com]
+2020-05-31 17:13:12,933 p=24215 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-05-31 17:13:12,953 p=24215 u=root n=ansible | TASK [deploy_kubernetes : 2. Permanently disabling swap] *****************************************************************************
+2020-05-31 17:13:13,450 p=24215 u=root n=ansible | ok: [node12.lab.example.com]
+2020-05-31 17:13:13,476 p=24215 u=root n=ansible | ok: [node11.lab.example.com]
+2020-05-31 17:13:13,476 p=24215 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-05-31 17:13:13,497 p=24215 u=root n=ansible | TASK [deploy_kubernetes : 3. Setting up firewall rules for master] *******************************************************************
+2020-05-31 17:13:13,577 p=24215 u=root n=ansible | fatal: [nodea.lab.example.com]: FAILED! => {"msg": "The conditional check 'KUBERNETES_MASTER in inventory_hostname' failed. The error was: Unexpected templating type error occurred on ({% if KUBERNETES_MASTER in inventory_hostname %} True {% else %} False {% endif %}): coercing to Unicode: need string or buffer, NoneType found\n\nThe error appears to be in '/tmp/ansible/kubernetes/deploy_kubernetes/tasks/main.yml': line 15, column 5, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n  - name: 3. Setting up firewall rules for master\n    ^ here\n"}
+2020-05-31 17:13:13,578 p=24215 u=root n=ansible | fatal: [node11.lab.example.com]: FAILED! => {"msg": "The conditional check 'KUBERNETES_MASTER in inventory_hostname' failed. The error was: Unexpected templating type error occurred on ({% if KUBERNETES_MASTER in inventory_hostname %} True {% else %} False {% endif %}): coercing to Unicode: need string or buffer, NoneType found\n\nThe error appears to be in '/tmp/ansible/kubernetes/deploy_kubernetes/tasks/main.yml': line 15, column 5, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n  - name: 3. Setting up firewall rules for master\n    ^ here\n"}
+2020-05-31 17:13:13,605 p=24215 u=root n=ansible | fatal: [node12.lab.example.com]: FAILED! => {"msg": "The conditional check 'KUBERNETES_MASTER in inventory_hostname' failed. The error was: Unexpected templating type error occurred on ({% if KUBERNETES_MASTER in inventory_hostname %} True {% else %} False {% endif %}): coercing to Unicode: need string or buffer, NoneType found\n\nThe error appears to be in '/tmp/ansible/kubernetes/deploy_kubernetes/tasks/main.yml': line 15, column 5, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n  - name: 3. Setting up firewall rules for master\n    ^ here\n"}
+2020-05-31 17:13:13,606 p=24215 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************
+2020-05-31 17:13:13,607 p=24215 u=root n=ansible | node11.lab.example.com     : ok=4    changed=1    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-05-31 17:13:13,607 p=24215 u=root n=ansible | node12.lab.example.com     : ok=4    changed=1    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-05-31 17:13:13,607 p=24215 u=root n=ansible | nodea.lab.example.com      : ok=4    changed=1    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-05-31 17:13:56,571 p=24410 u=root n=ansible | PLAY [------------ | Kuberenetes Cluster Deployment | -------------------] ***********************************************************
+2020-05-31 17:13:56,588 p=24410 u=root n=ansible | TASK [Gathering Facts] ***************************************************************************************************************
+2020-05-31 17:13:57,902 p=24410 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-05-31 17:13:57,958 p=24410 u=root n=ansible | ok: [node11.lab.example.com]
+2020-05-31 17:13:58,010 p=24410 u=root n=ansible | ok: [node12.lab.example.com]
+2020-05-31 17:13:58,030 p=24410 u=root n=ansible | TASK [Pre-Requisite-1 |Switching off swap|] ******************************************************************************************
+2020-05-31 17:13:58,093 p=24410 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-05-31 17:13:58,100 p=24410 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-05-31 17:13:58,140 p=24410 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-05-31 17:13:58,161 p=24410 u=root n=ansible | TASK [Pre-Requisite-2 |Gathering selinux status|] ************************************************************************************
+2020-05-31 17:13:58,752 p=24410 u=root n=ansible | changed: [node12.lab.example.com]
+2020-05-31 17:13:58,788 p=24410 u=root n=ansible | changed: [node11.lab.example.com]
+2020-05-31 17:13:58,789 p=24410 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-05-31 17:13:58,809 p=24410 u=root n=ansible | TASK [Pre-Requisite-3 |Switching off selinux|] ***************************************************************************************
+2020-05-31 17:13:58,880 p=24410 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-05-31 17:13:58,881 p=24410 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-05-31 17:13:58,906 p=24410 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-05-31 17:13:58,929 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 1. Permanently disabling Selinux] **************************************************************************
+2020-05-31 17:13:59,872 p=24410 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-05-31 17:13:59,875 p=24410 u=root n=ansible | ok: [node12.lab.example.com]
+2020-05-31 17:13:59,878 p=24410 u=root n=ansible | ok: [node11.lab.example.com]
+2020-05-31 17:13:59,899 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 2. Permanently disabling swap] *****************************************************************************
+2020-05-31 17:14:00,471 p=24410 u=root n=ansible | ok: [node11.lab.example.com]
+2020-05-31 17:14:00,505 p=24410 u=root n=ansible | ok: [node12.lab.example.com]
+2020-05-31 17:14:00,511 p=24410 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-05-31 17:14:00,534 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 3. Setting up firewall rules for master] *******************************************************************
+2020-05-31 17:14:00,629 p=24410 u=root n=ansible | skipping: [node11.lab.example.com] => (item=6443) 
+2020-05-31 17:14:00,630 p=24410 u=root n=ansible | skipping: [node11.lab.example.com] => (item=2379-2380) 
+2020-05-31 17:14:00,630 p=24410 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10250) 
+2020-05-31 17:14:00,641 p=24410 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10251) 
+2020-05-31 17:14:00,659 p=24410 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10252) 
+2020-05-31 17:14:00,688 p=24410 u=root n=ansible | skipping: [node12.lab.example.com] => (item=6443) 
+2020-05-31 17:14:00,696 p=24410 u=root n=ansible | skipping: [node12.lab.example.com] => (item=2379-2380) 
+2020-05-31 17:14:00,696 p=24410 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10250) 
+2020-05-31 17:14:00,697 p=24410 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10251) 
+2020-05-31 17:14:00,697 p=24410 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10252) 
+2020-05-31 17:14:01,257 p=24410 u=root n=ansible | ok: [nodea.lab.example.com] => (item=6443)
+2020-05-31 17:14:01,734 p=24410 u=root n=ansible | ok: [nodea.lab.example.com] => (item=2379-2380)
+2020-05-31 17:14:02,206 p=24410 u=root n=ansible | ok: [nodea.lab.example.com] => (item=10250)
+2020-05-31 17:14:02,697 p=24410 u=root n=ansible | ok: [nodea.lab.example.com] => (item=10251)
+2020-05-31 17:14:03,174 p=24410 u=root n=ansible | ok: [nodea.lab.example.com] => (item=10252)
+2020-05-31 17:14:03,196 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 4. Setting up firewall rules for workers] ******************************************************************
+2020-05-31 17:14:03,274 p=24410 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=10250) 
+2020-05-31 17:14:03,275 p=24410 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=10255) 
+2020-05-31 17:14:03,275 p=24410 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=30000-32767) 
+2020-05-31 17:14:03,276 p=24410 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=6783) 
+2020-05-31 17:14:03,798 p=24410 u=root n=ansible | ok: [node11.lab.example.com] => (item=10250)
+2020-05-31 17:14:03,836 p=24410 u=root n=ansible | ok: [node12.lab.example.com] => (item=10250)
+2020-05-31 17:14:04,335 p=24410 u=root n=ansible | ok: [node11.lab.example.com] => (item=10255)
+2020-05-31 17:14:04,386 p=24410 u=root n=ansible | ok: [node12.lab.example.com] => (item=10255)
+2020-05-31 17:14:04,840 p=24410 u=root n=ansible | ok: [node11.lab.example.com] => (item=30000-32767)
+2020-05-31 17:14:04,887 p=24410 u=root n=ansible | ok: [node12.lab.example.com] => (item=30000-32767)
+2020-05-31 17:14:05,341 p=24410 u=root n=ansible | ok: [node11.lab.example.com] => (item=6783)
+2020-05-31 17:14:05,396 p=24410 u=root n=ansible | ok: [node12.lab.example.com] => (item=6783)
+2020-05-31 17:14:05,417 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 5. netfilter module checking] ******************************************************************************
+2020-05-31 17:14:05,830 p=24410 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-05-31 17:14:05,853 p=24410 u=root n=ansible | changed: [node11.lab.example.com]
+2020-05-31 17:14:05,869 p=24410 u=root n=ansible | changed: [node12.lab.example.com]
+2020-05-31 17:14:05,890 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 6. Installing | br_netfilter | module] *********************************************************************
+2020-05-31 17:14:05,962 p=24410 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-05-31 17:14:05,964 p=24410 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-05-31 17:14:05,992 p=24410 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-05-31 17:14:06,013 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 7. Setting bridged call iptables] **************************************************************************
+2020-05-31 17:14:06,734 p=24410 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-05-31 17:14:06,803 p=24410 u=root n=ansible | ok: [node11.lab.example.com]
+2020-05-31 17:14:06,818 p=24410 u=root n=ansible | ok: [node12.lab.example.com]
+2020-05-31 17:14:06,839 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 8. Updating bridged iptable rules to kernel] ***************************************************************
+2020-05-31 17:14:07,267 p=24410 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-05-31 17:14:07,309 p=24410 u=root n=ansible | changed: [node11.lab.example.com]
+2020-05-31 17:14:07,361 p=24410 u=root n=ansible | changed: [node12.lab.example.com]
+2020-05-31 17:14:07,382 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 9. Setting up required Kubernetes repository] **************************************************************
+2020-05-31 17:14:08,013 p=24410 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-05-31 17:14:08,041 p=24410 u=root n=ansible | ok: [node11.lab.example.com]
+2020-05-31 17:14:08,084 p=24410 u=root n=ansible | ok: [node12.lab.example.com]
+2020-05-31 17:14:08,105 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 10. Installing required || Kubernetes || packages] *********************************************************
+2020-05-31 17:14:10,305 p=24410 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-05-31 17:14:10,315 p=24410 u=root n=ansible | ok: [node11.lab.example.com]
+2020-05-31 17:14:10,322 p=24410 u=root n=ansible | ok: [node12.lab.example.com]
+2020-05-31 17:14:10,345 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 11. Starting |docker,kubelet| service] *********************************************************************
+2020-05-31 17:14:11,200 p=24410 u=root n=ansible | ok: [nodea.lab.example.com] => (item=docker)
+2020-05-31 17:14:11,236 p=24410 u=root n=ansible | ok: [node11.lab.example.com] => (item=docker)
+2020-05-31 17:14:11,264 p=24410 u=root n=ansible | ok: [node12.lab.example.com] => (item=docker)
+2020-05-31 17:14:11,670 p=24410 u=root n=ansible | ok: [nodea.lab.example.com] => (item=kubelet)
+2020-05-31 17:14:11,749 p=24410 u=root n=ansible | ok: [node11.lab.example.com] => (item=kubelet)
+2020-05-31 17:14:11,764 p=24410 u=root n=ansible | ok: [node12.lab.example.com] => (item=kubelet)
+2020-05-31 17:14:11,789 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 12. Check if Kubernetes has already been initialized.] *****************************************************
+2020-05-31 17:14:12,255 p=24410 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-05-31 17:14:12,265 p=24410 u=root n=ansible | ok: [node11.lab.example.com]
+2020-05-31 17:14:12,315 p=24410 u=root n=ansible | ok: [node12.lab.example.com]
+2020-05-31 17:14:12,336 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 13. ------------------------ | Master Setup | ----------------------] **************************************
+2020-05-31 17:14:12,409 p=24410 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-05-31 17:14:12,439 p=24410 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-05-31 17:14:12,464 p=24410 u=root n=ansible | included: /tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-master-setup.yml for nodea.lab.example.com
+2020-05-31 17:14:12,494 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 13.1. Kubernetes initialization on master] *****************************************************************
+2020-05-31 17:14:12,535 p=24410 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-05-31 17:14:12,556 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 13.2. Creating requird directory structure] ****************************************************************
+2020-05-31 17:14:12,601 p=24410 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=mkdir -p /root/.kube) 
+2020-05-31 17:14:12,606 p=24410 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=sudo cp -i /etc/kubernetes/admin.conf /root/.kube/config) 
+2020-05-31 17:14:12,611 p=24410 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=chown root:root /root/.kube/config) 
+2020-05-31 17:14:12,634 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 13.3. Generate join command] *******************************************************************************
+2020-05-31 17:14:12,963 p=24410 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-05-31 17:14:12,984 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 13.4. Setting up the command use globally] *****************************************************************
+2020-05-31 17:14:13,028 p=24410 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-05-31 17:14:13,053 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 14. ------------------------ | Nodes/Worker Setup | ----------------] **************************************
+2020-05-31 17:14:13,137 p=24410 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-05-31 17:14:13,263 p=24410 u=root n=ansible | included: /tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-worker-setup.yml for node11.lab.example.com, node12.lab.example.com
+2020-05-31 17:14:13,293 p=24410 u=root n=ansible | TASK [deploy_kubernetes : 14.1 Joining Worker to | Kubernetes | cluster] *************************************************************
+2020-05-31 17:14:13,619 p=24410 u=root n=ansible | ok: [node11.lab.example.com]
+2020-05-31 17:14:13,645 p=24410 u=root n=ansible | ok: [node12.lab.example.com]
+2020-05-31 17:14:13,667 p=24410 u=root n=ansible | TASK [Post-Requisite Configuring |weave| network] ************************************************************************************
+2020-05-31 17:14:13,793 p=24410 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-05-31 17:14:13,843 p=24410 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-05-31 17:14:14,017 p=24410 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-05-31 17:14:14,019 p=24410 u=root n=ansible | PLAY RECAP ***************************************************************************************************************************
+2020-05-31 17:14:14,019 p=24410 u=root n=ansible | node11.lab.example.com     : ok=14   changed=3    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2020-05-31 17:14:14,020 p=24410 u=root n=ansible | node12.lab.example.com     : ok=14   changed=3    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2020-05-31 17:14:14,020 p=24410 u=root n=ansible | nodea.lab.example.com      : ok=16   changed=4    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+2020-06-01 02:18:25,006 p=1808 u=root n=ansible | PLAY [------------ | Kuberenetes Cluster Deployment | -------------------] **********************************************************
+2020-06-01 02:18:25,224 p=1808 u=root n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2020-06-01 02:18:28,288 p=1808 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:18:28,588 p=1808 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:18:28,764 p=1808 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:18:28,792 p=1808 u=root n=ansible | TASK [Pre-Requisite-1 |Switching off swap|] *****************************************************************************************
+2020-06-01 02:18:29,464 p=1808 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:18:29,466 p=1808 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:18:29,481 p=1808 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:18:29,493 p=1808 u=root n=ansible | TASK [Pre-Requisite-2 |Gathering selinux status|] ***********************************************************************************
+2020-06-01 02:18:29,859 p=1808 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:18:29,907 p=1808 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:18:29,913 p=1808 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:18:29,925 p=1808 u=root n=ansible | TASK [Pre-Requisite-3 |Switching off selinux|] **************************************************************************************
+2020-06-01 02:18:30,335 p=1808 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:18:30,370 p=1808 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:18:30,371 p=1808 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:18:30,385 p=1808 u=root n=ansible | TASK [deploy_kubernetes : 1. Permanently disabling Selinux] *************************************************************************
+2020-06-01 02:18:31,356 p=1808 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:18:31,368 p=1808 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:18:31,403 p=1808 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:18:31,416 p=1808 u=root n=ansible | TASK [deploy_kubernetes : 2. Permanently disabling swap] ****************************************************************************
+2020-06-01 02:18:31,969 p=1808 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:18:31,978 p=1808 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:18:31,978 p=1808 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:18:31,991 p=1808 u=root n=ansible | TASK [deploy_kubernetes : 3. Setting up firewall rules for master] ******************************************************************
+2020-06-01 02:18:32,071 p=1808 u=root n=ansible | fatal: [node11.lab.example.com]: FAILED! => {"msg": "The conditional check 'KUBERNETES_MASTER in inventory_hostname' failed. The error was: Unexpected templating type error occurred on ({% if KUBERNETES_MASTER in inventory_hostname %} True {% else %} False {% endif %}): coercing to Unicode: need string or buffer, NoneType found\n\nThe error appears to be in '/tmp/ansible/kubernetes/deploy_kubernetes/tasks/main.yml': line 12, column 5, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n  - name: 3. Setting up firewall rules for master\n    ^ here\n"}
+2020-06-01 02:18:32,074 p=1808 u=root n=ansible | fatal: [nodea.lab.example.com]: FAILED! => {"msg": "The conditional check 'KUBERNETES_MASTER in inventory_hostname' failed. The error was: Unexpected templating type error occurred on ({% if KUBERNETES_MASTER in inventory_hostname %} True {% else %} False {% endif %}): coercing to Unicode: need string or buffer, NoneType found\n\nThe error appears to be in '/tmp/ansible/kubernetes/deploy_kubernetes/tasks/main.yml': line 12, column 5, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n  - name: 3. Setting up firewall rules for master\n    ^ here\n"}
+2020-06-01 02:18:32,076 p=1808 u=root n=ansible | fatal: [node12.lab.example.com]: FAILED! => {"msg": "The conditional check 'KUBERNETES_MASTER in inventory_hostname' failed. The error was: Unexpected templating type error occurred on ({% if KUBERNETES_MASTER in inventory_hostname %} True {% else %} False {% endif %}): coercing to Unicode: need string or buffer, NoneType found\n\nThe error appears to be in '/tmp/ansible/kubernetes/deploy_kubernetes/tasks/main.yml': line 12, column 5, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n  - name: 3. Setting up firewall rules for master\n    ^ here\n"}
+2020-06-01 02:18:32,077 p=1808 u=root n=ansible | PLAY RECAP **************************************************************************************************************************
+2020-06-01 02:18:32,078 p=1808 u=root n=ansible | node11.lab.example.com     : ok=6    changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-01 02:18:32,078 p=1808 u=root n=ansible | node12.lab.example.com     : ok=6    changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-01 02:18:32,078 p=1808 u=root n=ansible | nodea.lab.example.com      : ok=6    changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-06-01 02:18:52,255 p=2022 u=root n=ansible | PLAY [------------ | Kuberenetes Cluster Deployment | -------------------] **********************************************************
+2020-06-01 02:18:52,268 p=2022 u=root n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2020-06-01 02:18:53,380 p=2022 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:18:53,417 p=2022 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:18:53,423 p=2022 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:18:53,436 p=2022 u=root n=ansible | TASK [Pre-Requisite-1 |Switching off swap|] *****************************************************************************************
+2020-06-01 02:18:53,479 p=2022 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 02:18:53,499 p=2022 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 02:18:53,514 p=2022 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 02:18:53,526 p=2022 u=root n=ansible | TASK [Pre-Requisite-2 |Gathering selinux status|] ***********************************************************************************
+2020-06-01 02:18:54,045 p=2022 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:18:54,063 p=2022 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:18:54,065 p=2022 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:18:54,077 p=2022 u=root n=ansible | TASK [Pre-Requisite-3 |Switching off selinux|] **************************************************************************************
+2020-06-01 02:18:54,124 p=2022 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 02:18:54,140 p=2022 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 02:18:54,162 p=2022 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 02:18:54,175 p=2022 u=root n=ansible | TASK [deploy_kubernetes : 1. Permanently disabling Selinux] *************************************************************************
+2020-06-01 02:18:55,174 p=2022 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:18:55,177 p=2022 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:18:55,183 p=2022 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:18:55,195 p=2022 u=root n=ansible | TASK [deploy_kubernetes : 2. Permanently disabling swap] ****************************************************************************
+2020-06-01 02:18:55,737 p=2022 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:18:55,742 p=2022 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:18:55,747 p=2022 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:18:55,760 p=2022 u=root n=ansible | TASK [deploy_kubernetes : 3. Setting up firewall rules for master] ******************************************************************
+2020-06-01 02:18:55,943 p=2022 u=root n=ansible | skipping: [node11.lab.example.com] => (item=6443) 
+2020-06-01 02:18:55,944 p=2022 u=root n=ansible | skipping: [node11.lab.example.com] => (item=2379-2380) 
+2020-06-01 02:18:55,944 p=2022 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10250) 
+2020-06-01 02:18:55,945 p=2022 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10251) 
+2020-06-01 02:18:55,945 p=2022 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10252) 
+2020-06-01 02:18:55,962 p=2022 u=root n=ansible | skipping: [node12.lab.example.com] => (item=6443) 
+2020-06-01 02:18:55,962 p=2022 u=root n=ansible | skipping: [node12.lab.example.com] => (item=2379-2380) 
+2020-06-01 02:18:55,962 p=2022 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10250) 
+2020-06-01 02:18:55,966 p=2022 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10251) 
+2020-06-01 02:18:55,967 p=2022 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10252) 
+2020-06-01 02:18:56,524 p=2022 u=root n=ansible | changed: [nodea.lab.example.com] => (item=6443)
+2020-06-01 02:18:57,035 p=2022 u=root n=ansible | changed: [nodea.lab.example.com] => (item=2379-2380)
+2020-06-01 02:18:57,525 p=2022 u=root n=ansible | changed: [nodea.lab.example.com] => (item=10250)
+2020-06-01 02:18:58,019 p=2022 u=root n=ansible | changed: [nodea.lab.example.com] => (item=10251)
+2020-06-01 02:18:58,524 p=2022 u=root n=ansible | changed: [nodea.lab.example.com] => (item=10252)
+2020-06-01 02:18:58,540 p=2022 u=root n=ansible | TASK [deploy_kubernetes : 4. Setting up firewall rules for workers] *****************************************************************
+2020-06-01 02:18:58,592 p=2022 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=10250) 
+2020-06-01 02:18:58,594 p=2022 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=10255) 
+2020-06-01 02:18:58,594 p=2022 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=30000-32767) 
+2020-06-01 02:18:58,595 p=2022 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=6783) 
+2020-06-01 02:18:59,153 p=2022 u=root n=ansible | changed: [node11.lab.example.com] => (item=10250)
+2020-06-01 02:18:59,204 p=2022 u=root n=ansible | changed: [node12.lab.example.com] => (item=10250)
+2020-06-01 02:18:59,698 p=2022 u=root n=ansible | changed: [node11.lab.example.com] => (item=10255)
+2020-06-01 02:18:59,724 p=2022 u=root n=ansible | changed: [node12.lab.example.com] => (item=10255)
+2020-06-01 02:19:00,217 p=2022 u=root n=ansible | changed: [node11.lab.example.com] => (item=30000-32767)
+2020-06-01 02:19:00,285 p=2022 u=root n=ansible | changed: [node12.lab.example.com] => (item=30000-32767)
+2020-06-01 02:19:00,762 p=2022 u=root n=ansible | changed: [node11.lab.example.com] => (item=6783)
+2020-06-01 02:19:00,792 p=2022 u=root n=ansible | changed: [node12.lab.example.com] => (item=6783)
+2020-06-01 02:19:00,806 p=2022 u=root n=ansible | TASK [deploy_kubernetes : 5. netfilter module checking] *****************************************************************************
+2020-06-01 02:19:01,151 p=2022 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:19:01,159 p=2022 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:19:01,166 p=2022 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:19:01,178 p=2022 u=root n=ansible | TASK [deploy_kubernetes : 6. Installing | br_netfilter | module] ********************************************************************
+2020-06-01 02:19:01,600 p=2022 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:19:01,618 p=2022 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:19:01,625 p=2022 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:19:01,639 p=2022 u=root n=ansible | TASK [deploy_kubernetes : Setting sysctl rules] *************************************************************************************
+2020-06-01 02:19:02,237 p=2022 u=root n=ansible | changed: [nodea.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 02:19:02,260 p=2022 u=root n=ansible | changed: [node12.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 02:19:02,269 p=2022 u=root n=ansible | changed: [node11.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 02:19:02,580 p=2022 u=root n=ansible | changed: [node12.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 02:19:02,590 p=2022 u=root n=ansible | changed: [node11.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 02:19:02,600 p=2022 u=root n=ansible | changed: [nodea.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 02:19:02,614 p=2022 u=root n=ansible | TASK [deploy_kubernetes : 9. Setting up required Kubernetes repository] *************************************************************
+2020-06-01 02:19:03,427 p=2022 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:19:03,446 p=2022 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:19:03,453 p=2022 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:19:03,479 p=2022 u=root n=ansible | TASK [deploy_kubernetes : 10. Installing required || Kubernetes || packages] ********************************************************
+2020-06-01 02:20:07,200 p=2022 u=root n=ansible | fatal: [nodea.lab.example.com]: FAILED! => {"changed": false, "msg": "Failure talking to yum: Cannot find a valid baseurl for repo: base/7/x86_64"}
+2020-06-01 02:20:07,311 p=2022 u=root n=ansible | fatal: [node11.lab.example.com]: FAILED! => {"changed": false, "msg": "Failure talking to yum: Cannot find a valid baseurl for repo: base/7/x86_64"}
+2020-06-01 02:20:07,671 p=2022 u=root n=ansible | fatal: [node12.lab.example.com]: FAILED! => {"changed": false, "msg": "Failure talking to yum: Cannot find a valid baseurl for repo: base/7/x86_64"}
+2020-06-01 02:20:07,673 p=2022 u=root n=ansible | PLAY RECAP **************************************************************************************************************************
+2020-06-01 02:20:07,673 p=2022 u=root n=ansible | node11.lab.example.com     : ok=9    changed=6    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   
+2020-06-01 02:20:07,673 p=2022 u=root n=ansible | node12.lab.example.com     : ok=9    changed=6    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   
+2020-06-01 02:20:07,673 p=2022 u=root n=ansible | nodea.lab.example.com      : ok=9    changed=6    unreachable=0    failed=1    skipped=3    rescued=0    ignored=0   
+2020-06-01 02:20:51,497 p=2458 u=root n=ansible | PLAY [------------ | Kuberenetes Cluster Deployment | -------------------] **********************************************************
+2020-06-01 02:20:51,511 p=2458 u=root n=ansible | TASK [Gathering Facts] **************************************************************************************************************
+2020-06-01 02:20:52,633 p=2458 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:20:52,669 p=2458 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:20:52,695 p=2458 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:20:52,707 p=2458 u=root n=ansible | TASK [Pre-Requisite-1 |Switching off swap|] *****************************************************************************************
+2020-06-01 02:20:52,760 p=2458 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 02:20:52,772 p=2458 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 02:20:52,785 p=2458 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 02:20:52,798 p=2458 u=root n=ansible | TASK [Pre-Requisite-2 |Gathering selinux status|] ***********************************************************************************
+2020-06-01 02:20:53,367 p=2458 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:20:53,376 p=2458 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:20:53,378 p=2458 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:20:53,390 p=2458 u=root n=ansible | TASK [Pre-Requisite-3 |Switching off selinux|] **************************************************************************************
+2020-06-01 02:20:53,436 p=2458 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 02:20:53,457 p=2458 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 02:20:53,473 p=2458 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 02:20:53,486 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 1. Permanently disabling Selinux] *************************************************************************
+2020-06-01 02:20:54,402 p=2458 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:20:54,432 p=2458 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:20:54,436 p=2458 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:20:54,448 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 2. Permanently disabling swap] ****************************************************************************
+2020-06-01 02:20:55,006 p=2458 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:20:55,012 p=2458 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:20:55,022 p=2458 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:20:55,037 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 3. Setting up firewall rules for master] ******************************************************************
+2020-06-01 02:20:55,189 p=2458 u=root n=ansible | skipping: [node11.lab.example.com] => (item=6443) 
+2020-06-01 02:20:55,189 p=2458 u=root n=ansible | skipping: [node11.lab.example.com] => (item=2379-2380) 
+2020-06-01 02:20:55,190 p=2458 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10250) 
+2020-06-01 02:20:55,190 p=2458 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10251) 
+2020-06-01 02:20:55,191 p=2458 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10252) 
+2020-06-01 02:20:55,196 p=2458 u=root n=ansible | skipping: [node12.lab.example.com] => (item=6443) 
+2020-06-01 02:20:55,203 p=2458 u=root n=ansible | skipping: [node12.lab.example.com] => (item=2379-2380) 
+2020-06-01 02:20:55,215 p=2458 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10250) 
+2020-06-01 02:20:55,215 p=2458 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10251) 
+2020-06-01 02:20:55,215 p=2458 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10252) 
+2020-06-01 02:20:55,755 p=2458 u=root n=ansible | ok: [nodea.lab.example.com] => (item=6443)
+2020-06-01 02:20:56,218 p=2458 u=root n=ansible | ok: [nodea.lab.example.com] => (item=2379-2380)
+2020-06-01 02:20:56,688 p=2458 u=root n=ansible | ok: [nodea.lab.example.com] => (item=10250)
+2020-06-01 02:20:57,174 p=2458 u=root n=ansible | ok: [nodea.lab.example.com] => (item=10251)
+2020-06-01 02:20:57,644 p=2458 u=root n=ansible | ok: [nodea.lab.example.com] => (item=10252)
+2020-06-01 02:20:57,657 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 4. Setting up firewall rules for workers] *****************************************************************
+2020-06-01 02:20:57,710 p=2458 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=10250) 
+2020-06-01 02:20:57,712 p=2458 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=10255) 
+2020-06-01 02:20:57,713 p=2458 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=30000-32767) 
+2020-06-01 02:20:57,713 p=2458 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=6783) 
+2020-06-01 02:20:58,236 p=2458 u=root n=ansible | ok: [node11.lab.example.com] => (item=10250)
+2020-06-01 02:20:58,257 p=2458 u=root n=ansible | ok: [node12.lab.example.com] => (item=10250)
+2020-06-01 02:20:58,756 p=2458 u=root n=ansible | ok: [node11.lab.example.com] => (item=10255)
+2020-06-01 02:20:58,771 p=2458 u=root n=ansible | ok: [node12.lab.example.com] => (item=10255)
+2020-06-01 02:20:59,262 p=2458 u=root n=ansible | ok: [node11.lab.example.com] => (item=30000-32767)
+2020-06-01 02:20:59,282 p=2458 u=root n=ansible | ok: [node12.lab.example.com] => (item=30000-32767)
+2020-06-01 02:20:59,747 p=2458 u=root n=ansible | ok: [node11.lab.example.com] => (item=6783)
+2020-06-01 02:20:59,763 p=2458 u=root n=ansible | ok: [node12.lab.example.com] => (item=6783)
+2020-06-01 02:20:59,777 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 5. netfilter module checking] *****************************************************************************
+2020-06-01 02:21:00,123 p=2458 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:21:00,162 p=2458 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:21:00,176 p=2458 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:21:00,189 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 6. Installing | br_netfilter | module] ********************************************************************
+2020-06-01 02:21:00,244 p=2458 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 02:21:00,256 p=2458 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 02:21:00,273 p=2458 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 02:21:00,286 p=2458 u=root n=ansible | TASK [deploy_kubernetes : Setting sysctl rules] *************************************************************************************
+2020-06-01 02:21:00,832 p=2458 u=root n=ansible | ok: [nodea.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 02:21:00,849 p=2458 u=root n=ansible | ok: [node12.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 02:21:00,898 p=2458 u=root n=ansible | ok: [node11.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 02:21:01,207 p=2458 u=root n=ansible | ok: [nodea.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 02:21:01,239 p=2458 u=root n=ansible | ok: [node12.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 02:21:01,246 p=2458 u=root n=ansible | ok: [node11.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 02:21:01,259 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 9. Setting up required Kubernetes repository] *************************************************************
+2020-06-01 02:21:01,898 p=2458 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:21:01,918 p=2458 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:21:01,925 p=2458 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:21:01,938 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 10. Installing required || Kubernetes || packages] ********************************************************
+2020-06-01 02:26:11,203 p=2458 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:26:15,251 p=2458 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:26:17,634 p=2458 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:26:17,664 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 11. Starting |docker,kubelet| service] ********************************************************************
+2020-06-01 02:26:21,086 p=2458 u=root n=ansible | changed: [nodea.lab.example.com] => (item=docker)
+2020-06-01 02:26:21,143 p=2458 u=root n=ansible | changed: [node11.lab.example.com] => (item=docker)
+2020-06-01 02:26:21,399 p=2458 u=root n=ansible | changed: [node12.lab.example.com] => (item=docker)
+2020-06-01 02:26:22,010 p=2458 u=root n=ansible | changed: [nodea.lab.example.com] => (item=kubelet)
+2020-06-01 02:26:22,131 p=2458 u=root n=ansible | changed: [node11.lab.example.com] => (item=kubelet)
+2020-06-01 02:26:22,200 p=2458 u=root n=ansible | changed: [node12.lab.example.com] => (item=kubelet)
+2020-06-01 02:26:22,218 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 12. Check if Kubernetes has already been initialized.] ****************************************************
+2020-06-01 02:26:22,643 p=2458 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:26:22,695 p=2458 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:26:22,721 p=2458 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:26:22,735 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 13. ------------------------ | Master Setup | ----------------------] *************************************
+2020-06-01 02:26:22,805 p=2458 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 02:26:22,820 p=2458 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 02:26:22,861 p=2458 u=root n=ansible | included: /tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-master-setup.yml for nodea.lab.example.com
+2020-06-01 02:26:22,882 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 13.1. Kubernetes initialization on master] ****************************************************************
+2020-06-01 02:30:30,953 p=2458 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:30:30,966 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 13.2. Creating requird directory structure] ***************************************************************
+2020-06-01 02:30:31,276 p=2458 u=root n=ansible | changed: [nodea.lab.example.com] => (item=mkdir -p /root/.kube)
+2020-06-01 02:30:31,618 p=2458 u=root n=ansible | changed: [nodea.lab.example.com] => (item=sudo cp -i /etc/kubernetes/admin.conf /root/.kube/config)
+2020-06-01 02:30:31,909 p=2458 u=root n=ansible | changed: [nodea.lab.example.com] => (item=chown root:root /root/.kube/config)
+2020-06-01 02:30:31,911 p=2458 u=root n=ansible | [WARNING]: Consider using the file module with state=directory rather than running 'mkdir'.  If you need to use command because file
+is insufficient you can add 'warn: false' to this command task or set 'command_warnings=False' in ansible.cfg to get rid of this
+message.
+
+2020-06-01 02:30:31,911 p=2458 u=root n=ansible | [WARNING]: Consider using 'become', 'become_method', and 'become_user' rather than running sudo
+
+2020-06-01 02:30:31,912 p=2458 u=root n=ansible | [WARNING]: Consider using the file module with owner rather than running 'chown'.  If you need to use command because file is
+insufficient you can add 'warn: false' to this command task or set 'command_warnings=False' in ansible.cfg to get rid of this
+message.
+
+2020-06-01 02:30:31,926 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 13.3. Generate join command] ******************************************************************************
+2020-06-01 02:30:32,248 p=2458 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:30:32,277 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 13.4. Setting up the command use globally] ****************************************************************
+2020-06-01 02:30:32,322 p=2458 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:30:32,335 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 14. ------------------------ | Nodes/Worker Setup | ----------------] *************************************
+2020-06-01 02:30:32,391 p=2458 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 02:30:32,464 p=2458 u=root n=ansible | included: /tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-worker-setup.yml for node11.lab.example.com, node12.lab.example.com
+2020-06-01 02:30:32,489 p=2458 u=root n=ansible | TASK [deploy_kubernetes : 14.1 Joining Worker to | Kubernetes | cluster] ************************************************************
+2020-06-01 02:30:42,699 p=2458 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:30:42,704 p=2458 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:30:42,718 p=2458 u=root n=ansible | TASK [Post-Requisite Configuring |weave| network] ***********************************************************************************
+2020-06-01 02:30:42,815 p=2458 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 02:30:42,843 p=2458 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 02:30:45,731 p=2458 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:30:45,734 p=2458 u=root n=ansible | PLAY RECAP **************************************************************************************************************************
+2020-06-01 02:30:45,735 p=2458 u=root n=ansible | node11.lab.example.com     : ok=13   changed=5    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2020-06-01 02:30:45,735 p=2458 u=root n=ansible | node12.lab.example.com     : ok=13   changed=5    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2020-06-01 02:30:45,735 p=2458 u=root n=ansible | nodea.lab.example.com      : ok=17   changed=8    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+2020-06-01 02:31:58,488 p=3032 u=root n=ansible | PLAY [------------ | Kuberenetes Cluster Deployment | -------------------] *********************************************************
+2020-06-01 02:31:58,507 p=3032 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************
+2020-06-01 02:32:00,328 p=3032 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:32:00,362 p=3032 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:32:00,410 p=3032 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:32:00,425 p=3032 u=root n=ansible | TASK [Pre-Requisite-1 |Switching off swap|] ****************************************************************************************
+2020-06-01 02:32:00,506 p=3032 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 02:32:00,510 p=3032 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 02:32:00,510 p=3032 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 02:32:00,525 p=3032 u=root n=ansible | TASK [Pre-Requisite-2 |Gathering selinux status|] **********************************************************************************
+2020-06-01 02:32:01,094 p=3032 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:32:01,113 p=3032 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:32:01,118 p=3032 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:32:01,132 p=3032 u=root n=ansible | TASK [Pre-Requisite-3 |Switching off selinux|] *************************************************************************************
+2020-06-01 02:32:01,201 p=3032 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 02:32:01,217 p=3032 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 02:32:01,233 p=3032 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 02:32:01,249 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 1. Permanently disabling Selinux] ************************************************************************
+2020-06-01 02:32:02,253 p=3032 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:32:02,262 p=3032 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:32:02,269 p=3032 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:32:02,283 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 2. Permanently disabling swap] ***************************************************************************
+2020-06-01 02:32:02,949 p=3032 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:32:02,974 p=3032 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:32:02,982 p=3032 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:32:02,999 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 3. Setting up firewall rules for master] *****************************************************************
+2020-06-01 02:32:03,112 p=3032 u=root n=ansible | skipping: [node11.lab.example.com] => (item=6443) 
+2020-06-01 02:32:03,112 p=3032 u=root n=ansible | skipping: [node11.lab.example.com] => (item=2379-2380) 
+2020-06-01 02:32:03,113 p=3032 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10250) 
+2020-06-01 02:32:03,114 p=3032 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10251) 
+2020-06-01 02:32:03,114 p=3032 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10252) 
+2020-06-01 02:32:03,127 p=3032 u=root n=ansible | skipping: [node12.lab.example.com] => (item=6443) 
+2020-06-01 02:32:03,127 p=3032 u=root n=ansible | skipping: [node12.lab.example.com] => (item=2379-2380) 
+2020-06-01 02:32:03,131 p=3032 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10250) 
+2020-06-01 02:32:03,135 p=3032 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10251) 
+2020-06-01 02:32:03,140 p=3032 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10252) 
+2020-06-01 02:32:03,792 p=3032 u=root n=ansible | ok: [nodea.lab.example.com] => (item=6443)
+2020-06-01 02:32:04,336 p=3032 u=root n=ansible | ok: [nodea.lab.example.com] => (item=2379-2380)
+2020-06-01 02:32:04,897 p=3032 u=root n=ansible | ok: [nodea.lab.example.com] => (item=10250)
+2020-06-01 02:32:05,439 p=3032 u=root n=ansible | ok: [nodea.lab.example.com] => (item=10251)
+2020-06-01 02:32:05,985 p=3032 u=root n=ansible | ok: [nodea.lab.example.com] => (item=10252)
+2020-06-01 02:32:06,000 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 4. Setting up firewall rules for workers] ****************************************************************
+2020-06-01 02:32:06,096 p=3032 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=10250) 
+2020-06-01 02:32:06,096 p=3032 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=10255) 
+2020-06-01 02:32:06,097 p=3032 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=30000-32767) 
+2020-06-01 02:32:06,105 p=3032 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=6783) 
+2020-06-01 02:32:06,714 p=3032 u=root n=ansible | ok: [node12.lab.example.com] => (item=10250)
+2020-06-01 02:32:06,714 p=3032 u=root n=ansible | ok: [node11.lab.example.com] => (item=10250)
+2020-06-01 02:32:07,293 p=3032 u=root n=ansible | ok: [node12.lab.example.com] => (item=10255)
+2020-06-01 02:32:07,294 p=3032 u=root n=ansible | ok: [node11.lab.example.com] => (item=10255)
+2020-06-01 02:32:07,868 p=3032 u=root n=ansible | ok: [node12.lab.example.com] => (item=30000-32767)
+2020-06-01 02:32:07,893 p=3032 u=root n=ansible | ok: [node11.lab.example.com] => (item=30000-32767)
+2020-06-01 02:32:08,480 p=3032 u=root n=ansible | ok: [node12.lab.example.com] => (item=6783)
+2020-06-01 02:32:08,512 p=3032 u=root n=ansible | ok: [node11.lab.example.com] => (item=6783)
+2020-06-01 02:32:08,532 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 5. netfilter module checking] ****************************************************************************
+2020-06-01 02:32:09,011 p=3032 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:32:09,048 p=3032 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 02:32:09,060 p=3032 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 02:32:09,076 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 6. Installing | br_netfilter | module] *******************************************************************
+2020-06-01 02:32:09,148 p=3032 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 02:32:09,161 p=3032 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 02:32:09,179 p=3032 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 02:32:09,195 p=3032 u=root n=ansible | TASK [deploy_kubernetes : Setting sysctl rules] ************************************************************************************
+2020-06-01 02:32:09,865 p=3032 u=root n=ansible | ok: [nodea.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 02:32:09,887 p=3032 u=root n=ansible | ok: [node11.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 02:32:09,937 p=3032 u=root n=ansible | ok: [node12.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 02:32:10,357 p=3032 u=root n=ansible | ok: [nodea.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 02:32:10,451 p=3032 u=root n=ansible | ok: [node12.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 02:32:10,463 p=3032 u=root n=ansible | ok: [node11.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 02:32:10,481 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 9. Setting up required Kubernetes repository] ************************************************************
+2020-06-01 02:32:11,284 p=3032 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:32:11,325 p=3032 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:32:11,373 p=3032 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:32:11,388 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 10. Installing required || Kubernetes || packages] *******************************************************
+2020-06-01 02:32:17,526 p=3032 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:32:17,789 p=3032 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:32:17,890 p=3032 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:32:17,906 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 11. Starting |docker,kubelet| service] *******************************************************************
+2020-06-01 02:32:18,853 p=3032 u=root n=ansible | ok: [node11.lab.example.com] => (item=docker)
+2020-06-01 02:32:18,872 p=3032 u=root n=ansible | ok: [nodea.lab.example.com] => (item=docker)
+2020-06-01 02:32:18,874 p=3032 u=root n=ansible | ok: [node12.lab.example.com] => (item=docker)
+2020-06-01 02:32:19,391 p=3032 u=root n=ansible | ok: [node12.lab.example.com] => (item=kubelet)
+2020-06-01 02:32:19,397 p=3032 u=root n=ansible | ok: [nodea.lab.example.com] => (item=kubelet)
+2020-06-01 02:32:19,400 p=3032 u=root n=ansible | ok: [node11.lab.example.com] => (item=kubelet)
+2020-06-01 02:32:19,422 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 12. Check if Kubernetes has already been initialized.] ***************************************************
+2020-06-01 02:32:19,905 p=3032 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:32:19,917 p=3032 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:32:19,939 p=3032 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:32:19,955 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 13. ------------------------ | Master Setup | ----------------------] ************************************
+2020-06-01 02:32:20,040 p=3032 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 02:32:20,045 p=3032 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 02:32:20,064 p=3032 u=root n=ansible | included: /tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-master-setup.yml for nodea.lab.example.com
+2020-06-01 02:32:20,088 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 13.1. Kubernetes initialization on master] ***************************************************************
+2020-06-01 02:32:20,130 p=3032 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 02:32:20,145 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 13.2. Creating requird directory structure] **************************************************************
+2020-06-01 02:32:20,194 p=3032 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=mkdir -p /root/.kube) 
+2020-06-01 02:32:20,198 p=3032 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=sudo cp -i /etc/kubernetes/admin.conf /root/.kube/config) 
+2020-06-01 02:32:20,203 p=3032 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=chown root:root /root/.kube/config) 
+2020-06-01 02:32:20,224 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 13.3. Generate join command] *****************************************************************************
+2020-06-01 02:32:20,576 p=3032 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 02:32:20,592 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 13.4. Setting up the command use globally] ***************************************************************
+2020-06-01 02:32:20,642 p=3032 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:32:20,657 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 14. ------------------------ | Nodes/Worker Setup | ----------------] ************************************
+2020-06-01 02:32:20,728 p=3032 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 02:32:20,786 p=3032 u=root n=ansible | included: /tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-worker-setup.yml for node11.lab.example.com, node12.lab.example.com
+2020-06-01 02:32:20,814 p=3032 u=root n=ansible | TASK [deploy_kubernetes : 14.1 Joining Worker to | Kubernetes | cluster] ***********************************************************
+2020-06-01 02:32:21,161 p=3032 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 02:32:21,191 p=3032 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 02:32:21,207 p=3032 u=root n=ansible | TASK [Post-Requisite Configuring |weave| network] **********************************************************************************
+2020-06-01 02:32:21,311 p=3032 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 02:32:21,315 p=3032 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 02:32:21,536 p=3032 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 02:32:21,538 p=3032 u=root n=ansible | PLAY RECAP *************************************************************************************************************************
+2020-06-01 02:32:21,539 p=3032 u=root n=ansible | node11.lab.example.com     : ok=13   changed=2    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2020-06-01 02:32:21,539 p=3032 u=root n=ansible | node12.lab.example.com     : ok=13   changed=2    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2020-06-01 02:32:21,539 p=3032 u=root n=ansible | nodea.lab.example.com      : ok=15   changed=3    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+2020-06-01 03:08:04,961 p=3884 u=root n=ansible | ERROR! this task 'msg' has extra params, which is only allowed in the following modules: shell, win_shell, include_vars, add_host, raw, include_role, meta, set_fact, include, import_tasks, script, import_role, include_tasks, group_by, command, win_command
+
+The error appears to be in '/tmp/ansible/kubernetes/deploy_kubernetes/tasks/main.yml': line 2, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+  - name: 0. Starting with role deployment
+    ^ here
+
+2020-06-01 03:09:07,675 p=3894 u=root n=ansible | PLAY [---------------------- | KUBERNETES CLUSTER DEPLOYMENT | ---------------------------------] **********************************
+2020-06-01 03:09:07,691 p=3894 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************
+2020-06-01 03:09:09,348 p=3894 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:09:09,445 p=3894 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:09:09,725 p=3894 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:09:09,746 p=3894 u=root n=ansible | TASK [Pre-Requisite-1 |Switching off swap|] ****************************************************************************************
+2020-06-01 03:09:09,812 p=3894 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 03:09:09,813 p=3894 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 03:09:09,842 p=3894 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 03:09:09,865 p=3894 u=root n=ansible | TASK [Pre-Requisite-2 |Gathering selinux status|] **********************************************************************************
+2020-06-01 03:09:10,420 p=3894 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:09:10,443 p=3894 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:09:10,443 p=3894 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:09:10,464 p=3894 u=root n=ansible | TASK [Pre-Requisite-3 |Switching off selinux|] *************************************************************************************
+2020-06-01 03:09:10,562 p=3894 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 03:09:10,593 p=3894 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 03:09:10,616 p=3894 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 03:09:10,651 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 0. Starting with role deployment] ************************************************************************
+2020-06-01 03:09:10,681 p=3894 u=root n=ansible | ok: [nodea.lab.example.com] => {
+    "msg": "Kuberenetes deployment started ... "
+}
+2020-06-01 03:09:10,717 p=3894 u=root n=ansible | ok: [node11.lab.example.com] => {
+    "msg": "Kuberenetes deployment started ... "
+}
+2020-06-01 03:09:10,762 p=3894 u=root n=ansible | ok: [node12.lab.example.com] => {
+    "msg": "Kuberenetes deployment started ... "
+}
+2020-06-01 03:09:10,782 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 1. Permanently disabling Selinux] ************************************************************************
+2020-06-01 03:09:11,709 p=3894 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:09:11,716 p=3894 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:09:11,724 p=3894 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:09:11,746 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 2. Permanently disabling swap] ***************************************************************************
+2020-06-01 03:09:12,257 p=3894 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:09:12,262 p=3894 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:09:12,270 p=3894 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:09:12,291 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 3. Setting up firewall rules for master] *****************************************************************
+2020-06-01 03:09:12,388 p=3894 u=root n=ansible | skipping: [node11.lab.example.com] => (item=6443) 
+2020-06-01 03:09:12,389 p=3894 u=root n=ansible | skipping: [node11.lab.example.com] => (item=2379-2380) 
+2020-06-01 03:09:12,404 p=3894 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10250) 
+2020-06-01 03:09:12,405 p=3894 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10251) 
+2020-06-01 03:09:12,405 p=3894 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10252) 
+2020-06-01 03:09:12,405 p=3894 u=root n=ansible | skipping: [node11.lab.example.com] => (item=80) 
+2020-06-01 03:09:12,406 p=3894 u=root n=ansible | skipping: [node11.lab.example.com] => (item=8080) 
+2020-06-01 03:09:12,417 p=3894 u=root n=ansible | skipping: [node12.lab.example.com] => (item=6443) 
+2020-06-01 03:09:12,418 p=3894 u=root n=ansible | skipping: [node12.lab.example.com] => (item=2379-2380) 
+2020-06-01 03:09:12,419 p=3894 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10250) 
+2020-06-01 03:09:12,423 p=3894 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10251) 
+2020-06-01 03:09:12,427 p=3894 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10252) 
+2020-06-01 03:09:12,432 p=3894 u=root n=ansible | skipping: [node12.lab.example.com] => (item=80) 
+2020-06-01 03:09:12,443 p=3894 u=root n=ansible | skipping: [node12.lab.example.com] => (item=8080) 
+2020-06-01 03:09:12,970 p=3894 u=root n=ansible | failed: [nodea.lab.example.com] (item=6443) => {"ansible_loop_var": "item", "changed": false, "item": 6443, "msg": "firewall is not currently running, unable to perform immediate actions without a running firewall daemon"}
+2020-06-01 03:09:13,400 p=3894 u=root n=ansible | failed: [nodea.lab.example.com] (item=2379-2380) => {"ansible_loop_var": "item", "changed": false, "item": "2379-2380", "msg": "firewall is not currently running, unable to perform immediate actions without a running firewall daemon"}
+2020-06-01 03:09:13,831 p=3894 u=root n=ansible | failed: [nodea.lab.example.com] (item=10250) => {"ansible_loop_var": "item", "changed": false, "item": 10250, "msg": "firewall is not currently running, unable to perform immediate actions without a running firewall daemon"}
+2020-06-01 03:09:14,268 p=3894 u=root n=ansible | failed: [nodea.lab.example.com] (item=10251) => {"ansible_loop_var": "item", "changed": false, "item": 10251, "msg": "firewall is not currently running, unable to perform immediate actions without a running firewall daemon"}
+2020-06-01 03:09:14,694 p=3894 u=root n=ansible | failed: [nodea.lab.example.com] (item=10252) => {"ansible_loop_var": "item", "changed": false, "item": 10252, "msg": "firewall is not currently running, unable to perform immediate actions without a running firewall daemon"}
+2020-06-01 03:09:15,124 p=3894 u=root n=ansible | failed: [nodea.lab.example.com] (item=80) => {"ansible_loop_var": "item", "changed": false, "item": 80, "msg": "firewall is not currently running, unable to perform immediate actions without a running firewall daemon"}
+2020-06-01 03:09:15,552 p=3894 u=root n=ansible | failed: [nodea.lab.example.com] (item=8080) => {"ansible_loop_var": "item", "changed": false, "item": 8080, "msg": "firewall is not currently running, unable to perform immediate actions without a running firewall daemon"}
+2020-06-01 03:09:15,576 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 4. Setting up firewall rules for workers] ****************************************************************
+2020-06-01 03:09:16,139 p=3894 u=root n=ansible | ok: [node11.lab.example.com] => (item=10250)
+2020-06-01 03:09:16,188 p=3894 u=root n=ansible | ok: [node12.lab.example.com] => (item=10250)
+2020-06-01 03:09:16,684 p=3894 u=root n=ansible | ok: [node11.lab.example.com] => (item=10255)
+2020-06-01 03:09:16,704 p=3894 u=root n=ansible | ok: [node12.lab.example.com] => (item=10255)
+2020-06-01 03:09:17,223 p=3894 u=root n=ansible | ok: [node11.lab.example.com] => (item=30000-32767)
+2020-06-01 03:09:17,240 p=3894 u=root n=ansible | ok: [node12.lab.example.com] => (item=30000-32767)
+2020-06-01 03:09:17,747 p=3894 u=root n=ansible | ok: [node11.lab.example.com] => (item=6783)
+2020-06-01 03:09:17,756 p=3894 u=root n=ansible | ok: [node12.lab.example.com] => (item=6783)
+2020-06-01 03:09:18,303 p=3894 u=root n=ansible | changed: [node11.lab.example.com] => (item=80)
+2020-06-01 03:09:18,349 p=3894 u=root n=ansible | changed: [node12.lab.example.com] => (item=80)
+2020-06-01 03:09:18,843 p=3894 u=root n=ansible | changed: [node11.lab.example.com] => (item=8080)
+2020-06-01 03:09:18,884 p=3894 u=root n=ansible | changed: [node12.lab.example.com] => (item=8080)
+2020-06-01 03:09:18,906 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 5. netfilter module checking] ****************************************************************************
+2020-06-01 03:09:19,192 p=3894 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:09:19,239 p=3894 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:09:19,260 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 6. Installing | br_netfilter | module] *******************************************************************
+2020-06-01 03:09:19,300 p=3894 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 03:09:19,335 p=3894 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 03:09:19,356 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 7. Setting bridged call iptables sysctl rules] ***********************************************************
+2020-06-01 03:09:19,841 p=3894 u=root n=ansible | ok: [node11.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 03:09:19,859 p=3894 u=root n=ansible | ok: [node12.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 03:09:20,136 p=3894 u=root n=ansible | ok: [node11.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 03:09:20,147 p=3894 u=root n=ansible | ok: [node12.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 03:09:20,171 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 8. Updating bridged iptable rules to kernel] *************************************************************
+2020-06-01 03:09:20,456 p=3894 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:09:20,478 p=3894 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:09:20,499 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 9. Setting up required Kubernetes repository] ************************************************************
+2020-06-01 03:09:20,996 p=3894 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:09:21,017 p=3894 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:09:21,038 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 10. Installing required | Kubernetes | packages] *********************************************************
+2020-06-01 03:09:23,980 p=3894 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:09:26,123 p=3894 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:09:26,143 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 11. Starting |docker , kubelet| service] *****************************************************************
+2020-06-01 03:09:26,879 p=3894 u=root n=ansible | ok: [node11.lab.example.com] => (item=docker)
+2020-06-01 03:09:26,895 p=3894 u=root n=ansible | ok: [node12.lab.example.com] => (item=docker)
+2020-06-01 03:09:27,229 p=3894 u=root n=ansible | ok: [node11.lab.example.com] => (item=kubelet)
+2020-06-01 03:09:27,238 p=3894 u=root n=ansible | ok: [node12.lab.example.com] => (item=kubelet)
+2020-06-01 03:09:27,262 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 12. Check if Kubernetes has already been initialized.] ***************************************************
+2020-06-01 03:09:27,552 p=3894 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:09:27,591 p=3894 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:09:27,612 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 13. [ ------------------------ | Master Setup | ----------------------] **********************************
+2020-06-01 03:09:27,651 p=3894 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 03:09:27,679 p=3894 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 03:09:27,702 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 14. [ ------------------------ | Nodes/Worker Setup | ----------------] **********************************
+2020-06-01 03:09:27,812 p=3894 u=root n=ansible | included: /tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-worker-setup.yml for node11.lab.example.com, node12.lab.example.com
+2020-06-01 03:09:27,839 p=3894 u=root n=ansible | TASK [deploy_kubernetes : 14.1 Joining Worker to | Kubernetes | cluster] ***********************************************************
+2020-06-01 03:09:27,894 p=3894 u=root n=ansible | fatal: [node11.lab.example.com]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'ansible.vars.hostvars.HostVarsVars object' has no attribute 'kubernetes_join_workers'\n\nThe error appears to be in '/tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-worker-setup.yml': line 2, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n---\n- name: 14.1 Joining Worker to | Kubernetes | cluster\n  ^ here\n"}
+2020-06-01 03:09:27,929 p=3894 u=root n=ansible | fatal: [node12.lab.example.com]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'ansible.vars.hostvars.HostVarsVars object' has no attribute 'kubernetes_join_workers'\n\nThe error appears to be in '/tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-worker-setup.yml': line 2, column 3, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n---\n- name: 14.1 Joining Worker to | Kubernetes | cluster\n  ^ here\n"}
+2020-06-01 03:09:27,930 p=3894 u=root n=ansible | PLAY RECAP *************************************************************************************************************************
+2020-06-01 03:09:27,930 p=3894 u=root n=ansible | node11.lab.example.com     : ok=14   changed=4    unreachable=0    failed=1    skipped=5    rescued=0    ignored=0   
+2020-06-01 03:09:27,930 p=3894 u=root n=ansible | node12.lab.example.com     : ok=14   changed=4    unreachable=0    failed=1    skipped=5    rescued=0    ignored=0   
+2020-06-01 03:09:27,930 p=3894 u=root n=ansible | nodea.lab.example.com      : ok=5    changed=1    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+2020-06-01 03:09:55,154 p=4378 u=root n=ansible | PLAY [---------------------- | KUBERNETES CLUSTER DEPLOYMENT | ---------------------------------] **********************************
+2020-06-01 03:09:55,170 p=4378 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************
+2020-06-01 03:09:56,566 p=4378 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:09:56,580 p=4378 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:09:56,614 p=4378 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:09:56,634 p=4378 u=root n=ansible | TASK [Pre-Requisite-1 |Switching off swap|] ****************************************************************************************
+2020-06-01 03:09:56,707 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 03:09:56,708 p=4378 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 03:09:56,737 p=4378 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 03:09:56,757 p=4378 u=root n=ansible | TASK [Pre-Requisite-2 |Gathering selinux status|] **********************************************************************************
+2020-06-01 03:09:57,368 p=4378 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:09:57,384 p=4378 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:09:57,400 p=4378 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:09:57,421 p=4378 u=root n=ansible | TASK [Pre-Requisite-3 |Switching off selinux|] *************************************************************************************
+2020-06-01 03:09:57,492 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 03:09:57,492 p=4378 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 03:09:57,521 p=4378 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 03:09:57,542 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 0. Starting with role deployment] ************************************************************************
+2020-06-01 03:09:57,572 p=4378 u=root n=ansible | ok: [nodea.lab.example.com] => {
+    "msg": "Kuberenetes deployment started ... "
+}
+2020-06-01 03:09:57,603 p=4378 u=root n=ansible | ok: [node11.lab.example.com] => {
+    "msg": "Kuberenetes deployment started ... "
+}
+2020-06-01 03:09:57,614 p=4378 u=root n=ansible | ok: [node12.lab.example.com] => {
+    "msg": "Kuberenetes deployment started ... "
+}
+2020-06-01 03:09:57,635 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 1. Permanently disabling Selinux] ************************************************************************
+2020-06-01 03:09:58,616 p=4378 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:09:58,618 p=4378 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:09:58,619 p=4378 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:09:58,639 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 2. Permanently disabling swap] ***************************************************************************
+2020-06-01 03:09:59,172 p=4378 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:09:59,186 p=4378 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:09:59,198 p=4378 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:09:59,220 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 3. Setting up firewall rules for master] *****************************************************************
+2020-06-01 03:09:59,329 p=4378 u=root n=ansible | skipping: [node11.lab.example.com] => (item=6443) 
+2020-06-01 03:09:59,330 p=4378 u=root n=ansible | skipping: [node11.lab.example.com] => (item=2379-2380) 
+2020-06-01 03:09:59,330 p=4378 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10250) 
+2020-06-01 03:09:59,330 p=4378 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10251) 
+2020-06-01 03:09:59,335 p=4378 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10252) 
+2020-06-01 03:09:59,335 p=4378 u=root n=ansible | skipping: [node11.lab.example.com] => (item=80) 
+2020-06-01 03:09:59,336 p=4378 u=root n=ansible | skipping: [node11.lab.example.com] => (item=8080) 
+2020-06-01 03:09:59,344 p=4378 u=root n=ansible | skipping: [node12.lab.example.com] => (item=6443) 
+2020-06-01 03:09:59,353 p=4378 u=root n=ansible | skipping: [node12.lab.example.com] => (item=2379-2380) 
+2020-06-01 03:09:59,375 p=4378 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10250) 
+2020-06-01 03:09:59,376 p=4378 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10251) 
+2020-06-01 03:09:59,376 p=4378 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10252) 
+2020-06-01 03:09:59,377 p=4378 u=root n=ansible | skipping: [node12.lab.example.com] => (item=80) 
+2020-06-01 03:09:59,377 p=4378 u=root n=ansible | skipping: [node12.lab.example.com] => (item=8080) 
+2020-06-01 03:09:59,936 p=4378 u=root n=ansible | ok: [nodea.lab.example.com] => (item=6443)
+2020-06-01 03:10:00,424 p=4378 u=root n=ansible | ok: [nodea.lab.example.com] => (item=2379-2380)
+2020-06-01 03:10:00,897 p=4378 u=root n=ansible | ok: [nodea.lab.example.com] => (item=10250)
+2020-06-01 03:10:01,376 p=4378 u=root n=ansible | ok: [nodea.lab.example.com] => (item=10251)
+2020-06-01 03:10:01,861 p=4378 u=root n=ansible | ok: [nodea.lab.example.com] => (item=10252)
+2020-06-01 03:10:02,391 p=4378 u=root n=ansible | changed: [nodea.lab.example.com] => (item=80)
+2020-06-01 03:10:02,915 p=4378 u=root n=ansible | changed: [nodea.lab.example.com] => (item=8080)
+2020-06-01 03:10:02,939 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 4. Setting up firewall rules for workers] ****************************************************************
+2020-06-01 03:10:03,022 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=10250) 
+2020-06-01 03:10:03,023 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=10255) 
+2020-06-01 03:10:03,024 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=30000-32767) 
+2020-06-01 03:10:03,024 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=6783) 
+2020-06-01 03:10:03,024 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=80) 
+2020-06-01 03:10:03,025 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=8080) 
+2020-06-01 03:10:03,620 p=4378 u=root n=ansible | ok: [node11.lab.example.com] => (item=10250)
+2020-06-01 03:10:03,640 p=4378 u=root n=ansible | ok: [node12.lab.example.com] => (item=10250)
+2020-06-01 03:10:04,175 p=4378 u=root n=ansible | ok: [node11.lab.example.com] => (item=10255)
+2020-06-01 03:10:04,241 p=4378 u=root n=ansible | ok: [node12.lab.example.com] => (item=10255)
+2020-06-01 03:10:04,689 p=4378 u=root n=ansible | ok: [node11.lab.example.com] => (item=30000-32767)
+2020-06-01 03:10:04,758 p=4378 u=root n=ansible | ok: [node12.lab.example.com] => (item=30000-32767)
+2020-06-01 03:10:05,196 p=4378 u=root n=ansible | ok: [node11.lab.example.com] => (item=6783)
+2020-06-01 03:10:05,242 p=4378 u=root n=ansible | ok: [node12.lab.example.com] => (item=6783)
+2020-06-01 03:10:05,706 p=4378 u=root n=ansible | ok: [node11.lab.example.com] => (item=80)
+2020-06-01 03:10:05,747 p=4378 u=root n=ansible | ok: [node12.lab.example.com] => (item=80)
+2020-06-01 03:10:06,215 p=4378 u=root n=ansible | ok: [node11.lab.example.com] => (item=8080)
+2020-06-01 03:10:06,267 p=4378 u=root n=ansible | ok: [node12.lab.example.com] => (item=8080)
+2020-06-01 03:10:06,289 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 5. netfilter module checking] ****************************************************************************
+2020-06-01 03:10:06,701 p=4378 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:10:06,702 p=4378 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:10:06,740 p=4378 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:10:06,761 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 6. Installing | br_netfilter | module] *******************************************************************
+2020-06-01 03:10:06,833 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 03:10:06,833 p=4378 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 03:10:06,863 p=4378 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 03:10:06,884 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 7. Setting bridged call iptables sysctl rules] ***********************************************************
+2020-06-01 03:10:07,514 p=4378 u=root n=ansible | ok: [nodea.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 03:10:07,566 p=4378 u=root n=ansible | ok: [node11.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 03:10:07,567 p=4378 u=root n=ansible | ok: [node12.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 03:10:07,877 p=4378 u=root n=ansible | ok: [nodea.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 03:10:07,936 p=4378 u=root n=ansible | ok: [node12.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 03:10:07,946 p=4378 u=root n=ansible | ok: [node11.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 03:10:07,968 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 8. Updating bridged iptable rules to kernel] *************************************************************
+2020-06-01 03:10:08,449 p=4378 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:10:08,470 p=4378 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:10:08,475 p=4378 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:10:08,497 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 9. Setting up required Kubernetes repository] ************************************************************
+2020-06-01 03:10:09,145 p=4378 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:10:09,160 p=4378 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:10:09,246 p=4378 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:10:09,267 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 10. Installing required | Kubernetes | packages] *********************************************************
+2020-06-01 03:10:14,537 p=4378 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:10:14,554 p=4378 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:10:14,581 p=4378 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:10:14,603 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 11. Starting |docker , kubelet| service] *****************************************************************
+2020-06-01 03:10:15,489 p=4378 u=root n=ansible | ok: [nodea.lab.example.com] => (item=docker)
+2020-06-01 03:10:15,522 p=4378 u=root n=ansible | ok: [node11.lab.example.com] => (item=docker)
+2020-06-01 03:10:15,538 p=4378 u=root n=ansible | ok: [node12.lab.example.com] => (item=docker)
+2020-06-01 03:10:15,934 p=4378 u=root n=ansible | ok: [nodea.lab.example.com] => (item=kubelet)
+2020-06-01 03:10:15,988 p=4378 u=root n=ansible | ok: [node11.lab.example.com] => (item=kubelet)
+2020-06-01 03:10:16,008 p=4378 u=root n=ansible | ok: [node12.lab.example.com] => (item=kubelet)
+2020-06-01 03:10:16,032 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 12. Check if Kubernetes has already been initialized.] ***************************************************
+2020-06-01 03:10:16,500 p=4378 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:10:16,508 p=4378 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:10:16,512 p=4378 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:10:16,533 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 13. [ ------------------------ | Master Setup | ----------------------] **********************************
+2020-06-01 03:10:16,613 p=4378 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 03:10:16,634 p=4378 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 03:10:16,659 p=4378 u=root n=ansible | included: /tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-master-setup.yml for nodea.lab.example.com
+2020-06-01 03:10:16,691 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 13.1. Kubernetes initialization on master] ***************************************************************
+2020-06-01 03:10:16,728 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 03:10:16,750 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 13.2. Creating requird directory structure] **************************************************************
+2020-06-01 03:10:16,794 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=mkdir -p ~/.kube) 
+2020-06-01 03:10:16,798 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config) 
+2020-06-01 03:10:16,801 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=sudo chown $(id -u):$(id -g) ~/.kube/config) 
+2020-06-01 03:10:16,823 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 13.3. Generate join command] *****************************************************************************
+2020-06-01 03:10:17,155 p=4378 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:10:17,176 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 13.4. Setting up the command use globally] ***************************************************************
+2020-06-01 03:10:17,222 p=4378 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:10:17,243 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 14. [ ------------------------ | Nodes/Worker Setup | ----------------] **********************************
+2020-06-01 03:10:17,315 p=4378 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 03:10:17,391 p=4378 u=root n=ansible | included: /tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-worker-setup.yml for node11.lab.example.com, node12.lab.example.com
+2020-06-01 03:10:17,425 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 14.1 Joining Worker to | Kubernetes | cluster] ***********************************************************
+2020-06-01 03:10:17,759 p=4378 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:10:17,782 p=4378 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:10:17,807 p=4378 u=root n=ansible | TASK [deploy_kubernetes : 15. Ending with role deployment] *************************************************************************
+2020-06-01 03:10:17,837 p=4378 u=root n=ansible | ok: [nodea.lab.example.com] => {
+    "msg": "Kuberenetes deployment ended ... "
+}
+2020-06-01 03:10:17,868 p=4378 u=root n=ansible | ok: [node11.lab.example.com] => {
+    "msg": "Kuberenetes deployment ended ... "
+}
+2020-06-01 03:10:17,879 p=4378 u=root n=ansible | ok: [node12.lab.example.com] => {
+    "msg": "Kuberenetes deployment ended ... "
+}
+2020-06-01 03:10:17,902 p=4378 u=root n=ansible | TASK [Post-Requisite Configuring | weave | network] ********************************************************************************
+2020-06-01 03:10:17,983 p=4378 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 03:10:18,008 p=4378 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 03:10:18,213 p=4378 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:10:18,215 p=4378 u=root n=ansible | PLAY RECAP *************************************************************************************************************************
+2020-06-01 03:10:18,216 p=4378 u=root n=ansible | node11.lab.example.com     : ok=16   changed=3    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2020-06-01 03:10:18,216 p=4378 u=root n=ansible | node12.lab.example.com     : ok=16   changed=3    unreachable=0    failed=0    skipped=6    rescued=0    ignored=0   
+2020-06-01 03:10:18,216 p=4378 u=root n=ansible | nodea.lab.example.com      : ok=18   changed=5    unreachable=0    failed=0    skipped=7    rescued=0    ignored=0   
+2020-06-01 03:12:40,214 p=4996 u=root n=ansible | PLAY [---------------------- | KUBERNETES CLUSTER DEPLOYMENT | ---------------------------------] **********************************
+2020-06-01 03:12:40,230 p=4996 u=root n=ansible | TASK [Gathering Facts] *************************************************************************************************************
+2020-06-01 03:12:41,735 p=4996 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:12:41,819 p=4996 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:12:41,823 p=4996 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:12:41,836 p=4996 u=root n=ansible | TASK [Pre-Requisite-1 |Switching off swap|] ****************************************************************************************
+2020-06-01 03:12:42,440 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:12:42,442 p=4996 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:12:42,460 p=4996 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:12:42,472 p=4996 u=root n=ansible | TASK [Pre-Requisite-2 |Gathering selinux status|] **********************************************************************************
+2020-06-01 03:12:42,851 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:12:42,857 p=4996 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:12:42,916 p=4996 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:12:42,931 p=4996 u=root n=ansible | TASK [Pre-Requisite-3 |Switching off selinux|] *************************************************************************************
+2020-06-01 03:12:43,332 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:12:43,369 p=4996 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:12:43,403 p=4996 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:12:43,416 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 0. Starting with role deployment] ************************************************************************
+2020-06-01 03:12:43,436 p=4996 u=root n=ansible | ok: [nodea.lab.example.com] => {
+    "msg": "Kuberenetes deployment started ... "
+}
+2020-06-01 03:12:43,455 p=4996 u=root n=ansible | ok: [node11.lab.example.com] => {
+    "msg": "Kuberenetes deployment started ... "
+}
+2020-06-01 03:12:43,466 p=4996 u=root n=ansible | ok: [node12.lab.example.com] => {
+    "msg": "Kuberenetes deployment started ... "
+}
+2020-06-01 03:12:43,480 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 1. Permanently disabling Selinux] ************************************************************************
+2020-06-01 03:12:44,524 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:12:44,539 p=4996 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:12:44,563 p=4996 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:12:44,576 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 2. Permanently disabling swap] ***************************************************************************
+2020-06-01 03:12:45,063 p=4996 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:12:45,073 p=4996 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:12:45,082 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:12:45,096 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 3. Setting up firewall rules for master] *****************************************************************
+2020-06-01 03:12:45,187 p=4996 u=root n=ansible | skipping: [node11.lab.example.com] => (item=6443) 
+2020-06-01 03:12:45,187 p=4996 u=root n=ansible | skipping: [node11.lab.example.com] => (item=2379-2380) 
+2020-06-01 03:12:45,188 p=4996 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10250) 
+2020-06-01 03:12:45,201 p=4996 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10251) 
+2020-06-01 03:12:45,201 p=4996 u=root n=ansible | skipping: [node11.lab.example.com] => (item=10252) 
+2020-06-01 03:12:45,202 p=4996 u=root n=ansible | skipping: [node11.lab.example.com] => (item=80) 
+2020-06-01 03:12:45,202 p=4996 u=root n=ansible | skipping: [node11.lab.example.com] => (item=8080) 
+2020-06-01 03:12:45,206 p=4996 u=root n=ansible | skipping: [node12.lab.example.com] => (item=6443) 
+2020-06-01 03:12:45,206 p=4996 u=root n=ansible | skipping: [node12.lab.example.com] => (item=2379-2380) 
+2020-06-01 03:12:45,207 p=4996 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10250) 
+2020-06-01 03:12:45,207 p=4996 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10251) 
+2020-06-01 03:12:45,209 p=4996 u=root n=ansible | skipping: [node12.lab.example.com] => (item=10252) 
+2020-06-01 03:12:45,210 p=4996 u=root n=ansible | skipping: [node12.lab.example.com] => (item=80) 
+2020-06-01 03:12:45,219 p=4996 u=root n=ansible | skipping: [node12.lab.example.com] => (item=8080) 
+2020-06-01 03:12:45,803 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=6443)
+2020-06-01 03:12:46,306 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=2379-2380)
+2020-06-01 03:12:46,800 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=10250)
+2020-06-01 03:12:47,283 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=10251)
+2020-06-01 03:12:47,790 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=10252)
+2020-06-01 03:12:48,278 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=80)
+2020-06-01 03:12:48,767 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=8080)
+2020-06-01 03:12:48,780 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 4. Setting up firewall rules for workers] ****************************************************************
+2020-06-01 03:12:48,867 p=4996 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=10250) 
+2020-06-01 03:12:48,868 p=4996 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=10255) 
+2020-06-01 03:12:48,868 p=4996 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=30000-32767) 
+2020-06-01 03:12:48,868 p=4996 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=6783) 
+2020-06-01 03:12:48,870 p=4996 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=80) 
+2020-06-01 03:12:48,871 p=4996 u=root n=ansible | skipping: [nodea.lab.example.com] => (item=8080) 
+2020-06-01 03:12:49,414 p=4996 u=root n=ansible | changed: [node12.lab.example.com] => (item=10250)
+2020-06-01 03:12:49,424 p=4996 u=root n=ansible | changed: [node11.lab.example.com] => (item=10250)
+2020-06-01 03:12:50,049 p=4996 u=root n=ansible | changed: [node12.lab.example.com] => (item=10255)
+2020-06-01 03:12:50,547 p=4996 u=root n=ansible | changed: [node12.lab.example.com] => (item=30000-32767)
+2020-06-01 03:12:50,713 p=4996 u=root n=ansible | changed: [node11.lab.example.com] => (item=10255)
+2020-06-01 03:12:51,085 p=4996 u=root n=ansible | changed: [node12.lab.example.com] => (item=6783)
+2020-06-01 03:12:51,224 p=4996 u=root n=ansible | changed: [node11.lab.example.com] => (item=30000-32767)
+2020-06-01 03:12:51,611 p=4996 u=root n=ansible | changed: [node12.lab.example.com] => (item=80)
+2020-06-01 03:12:51,741 p=4996 u=root n=ansible | changed: [node11.lab.example.com] => (item=6783)
+2020-06-01 03:12:52,124 p=4996 u=root n=ansible | changed: [node12.lab.example.com] => (item=8080)
+2020-06-01 03:12:52,260 p=4996 u=root n=ansible | changed: [node11.lab.example.com] => (item=80)
+2020-06-01 03:12:52,748 p=4996 u=root n=ansible | changed: [node11.lab.example.com] => (item=8080)
+2020-06-01 03:12:52,763 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 5. netfilter module checking] ****************************************************************************
+2020-06-01 03:12:53,100 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:12:53,113 p=4996 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:12:53,130 p=4996 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:12:53,143 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 6. Installing | br_netfilter | module] *******************************************************************
+2020-06-01 03:12:53,567 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:12:53,579 p=4996 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:12:53,625 p=4996 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:12:53,638 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 7. Setting bridged call iptables sysctl rules] ***********************************************************
+2020-06-01 03:12:54,266 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 03:12:54,276 p=4996 u=root n=ansible | changed: [node11.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 03:12:54,284 p=4996 u=root n=ansible | changed: [node12.lab.example.com] => (item=net.bridge.bridge-nf-call-ip6tables)
+2020-06-01 03:12:54,574 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 03:12:54,611 p=4996 u=root n=ansible | changed: [node11.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 03:12:54,622 p=4996 u=root n=ansible | changed: [node12.lab.example.com] => (item=net.bridge.bridge-nf-call-iptables)
+2020-06-01 03:12:54,635 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 8. Updating bridged iptable rules to kernel] *************************************************************
+2020-06-01 03:12:54,979 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:12:54,989 p=4996 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:12:55,003 p=4996 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:12:55,016 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 9. Setting up required Kubernetes repository] ************************************************************
+2020-06-01 03:12:55,656 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:12:55,671 p=4996 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:12:55,681 p=4996 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:12:55,694 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 10. Installing required | Kubernetes | packages] *********************************************************
+2020-06-01 03:17:53,938 p=4996 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:18:00,267 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:18:02,868 p=4996 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:18:02,880 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 11. Starting |docker , kubelet| service] *****************************************************************
+2020-06-01 03:18:05,610 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=docker)
+2020-06-01 03:18:05,707 p=4996 u=root n=ansible | changed: [node12.lab.example.com] => (item=docker)
+2020-06-01 03:18:05,756 p=4996 u=root n=ansible | changed: [node11.lab.example.com] => (item=docker)
+2020-06-01 03:18:06,316 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=kubelet)
+2020-06-01 03:18:06,447 p=4996 u=root n=ansible | changed: [node12.lab.example.com] => (item=kubelet)
+2020-06-01 03:18:06,486 p=4996 u=root n=ansible | changed: [node11.lab.example.com] => (item=kubelet)
+2020-06-01 03:18:06,502 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 12. Check if Kubernetes has already been initialized.] ***************************************************
+2020-06-01 03:18:06,870 p=4996 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:18:06,903 p=4996 u=root n=ansible | ok: [node11.lab.example.com]
+2020-06-01 03:18:06,919 p=4996 u=root n=ansible | ok: [node12.lab.example.com]
+2020-06-01 03:18:06,933 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 13. [ ------------------------ | Master Setup | ----------------------] **********************************
+2020-06-01 03:18:07,008 p=4996 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 03:18:07,018 p=4996 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 03:18:07,034 p=4996 u=root n=ansible | included: /tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-master-setup.yml for nodea.lab.example.com
+2020-06-01 03:18:07,057 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 13.1. Kubernetes initialization on master] ***************************************************************
+2020-06-01 03:22:09,800 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:22:09,812 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 13.2. Creating requird directory structure] **************************************************************
+2020-06-01 03:22:10,131 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=mkdir -p ~/.kube)
+2020-06-01 03:22:10,416 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=sudo cp -i /etc/kubernetes/admin.conf ~/.kube/config)
+2020-06-01 03:22:10,685 p=4996 u=root n=ansible | changed: [nodea.lab.example.com] => (item=sudo chown $(id -u):$(id -g) ~/.kube/config)
+2020-06-01 03:22:10,687 p=4996 u=root n=ansible | [WARNING]: Consider using the file module with state=directory rather than running 'mkdir'.  If you need to use command because
+file is insufficient you can add 'warn: false' to this command task or set 'command_warnings=False' in ansible.cfg to get rid of
+this message.
+
+2020-06-01 03:22:10,687 p=4996 u=root n=ansible | [WARNING]: Consider using 'become', 'become_method', and 'become_user' rather than running sudo
+
+2020-06-01 03:22:10,700 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 13.3. Generate join command] *****************************************************************************
+2020-06-01 03:22:11,015 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:22:11,028 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 13.4. Setting up the command use globally] ***************************************************************
+2020-06-01 03:22:11,072 p=4996 u=root n=ansible | ok: [nodea.lab.example.com]
+2020-06-01 03:22:11,086 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 14. [ ------------------------ | Nodes/Worker Setup | ----------------] **********************************
+2020-06-01 03:22:11,146 p=4996 u=root n=ansible | skipping: [nodea.lab.example.com]
+2020-06-01 03:22:11,199 p=4996 u=root n=ansible | included: /tmp/ansible/kubernetes/deploy_kubernetes/tasks/k8-worker-setup.yml for node11.lab.example.com, node12.lab.example.com
+2020-06-01 03:22:11,224 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 14.1 Joining Worker to | Kubernetes | cluster] ***********************************************************
+2020-06-01 03:22:21,381 p=4996 u=root n=ansible | changed: [node11.lab.example.com]
+2020-06-01 03:22:21,387 p=4996 u=root n=ansible | changed: [node12.lab.example.com]
+2020-06-01 03:22:21,400 p=4996 u=root n=ansible | TASK [deploy_kubernetes : 15. Ending with role deployment] *************************************************************************
+2020-06-01 03:22:21,424 p=4996 u=root n=ansible | ok: [nodea.lab.example.com] => {
+    "msg": "Kuberenetes deployment ended ... "
+}
+2020-06-01 03:22:21,443 p=4996 u=root n=ansible | ok: [node11.lab.example.com] => {
+    "msg": "Kuberenetes deployment ended ... "
+}
+2020-06-01 03:22:21,453 p=4996 u=root n=ansible | ok: [node12.lab.example.com] => {
+    "msg": "Kuberenetes deployment ended ... "
+}
+2020-06-01 03:22:21,468 p=4996 u=root n=ansible | TASK [Post-Requisite Configuring | weave | network] ********************************************************************************
+2020-06-01 03:22:21,546 p=4996 u=root n=ansible | skipping: [node11.lab.example.com]
+2020-06-01 03:22:21,553 p=4996 u=root n=ansible | skipping: [node12.lab.example.com]
+2020-06-01 03:22:24,100 p=4996 u=root n=ansible | changed: [nodea.lab.example.com]
+2020-06-01 03:22:24,103 p=4996 u=root n=ansible | PLAY RECAP *************************************************************************************************************************
+2020-06-01 03:22:24,103 p=4996 u=root n=ansible | node11.lab.example.com     : ok=19   changed=14   unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2020-06-01 03:22:24,103 p=4996 u=root n=ansible | node12.lab.example.com     : ok=19   changed=14   unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2020-06-01 03:22:24,104 p=4996 u=root n=ansible | nodea.lab.example.com      : ok=23   changed=17   unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
