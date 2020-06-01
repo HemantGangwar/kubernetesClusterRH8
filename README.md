@@ -42,31 +42,12 @@ It contains 3 segments:
 
 The playbook is fully idempotent and can be safely used multiple times.
 
-$ cat kubernetes.yml
+1. Simply clone the git repo.
+2. Update deploy_kubernetes/defaults/main.yml with required parameter
+3. Execute playbook using 
+# ansible-playbook kubernetes.yml
 
-"-" name: ------------ | Kuberenetes Cluster Deployment | -------------------
-    hosts: kub
-    become: all
-    pre_tasks:
-    "-"  name: Pre-Requisite-1 |Switching off swap|
-         shell: swapoff -a
-         when: ansible_swaptotal_mb > 0
-    "-"  name: Pre-Requisite-2 |Gathering selinux status|
-         shell: getenforce | grep -i Enforcing | wc -l
-         register: se_status
-    "-"  name: Pre-Requisite-3 |Switching off selinux|
-         shell: setenforce 0
-         when: se_status.stdout == '1'
-
-  roles:
-    deploy_kubernetes
-
-  post_tasks:
-    name: Post-Requisite Configuring |weave| network
-    shell: kubectl apply -f https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n') >> /tmp/weave_network.txt
-    args:
-      creates: /tmp/weave_network.txt
-    when: ansible_fqdn == '>>> Enter your kubernetes master name here <<<'
+Execution of playbook can be seen at : https://www.youtube.com/watch?v=Lns4th54zPM&t=106s
 
 
 AUTHOR
