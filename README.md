@@ -58,3 +58,7 @@ Execution of playbook can be viewed at : https://www.youtube.com/watch?v=Lns4th5
 AUTHOR
 ========
 This playbook is written by Hemant Gangwar, you can read more about author at https://learningtechnix.wordpress.com or follow on LinkedIN https://www.linkedin.com/in/hemant-gangwar-6a677b19/
+
+BUG FIXES
+=========
+1. In version 30 June 2020 fixed an issue with playbook requiring static master name while joining Kubernetes nodes

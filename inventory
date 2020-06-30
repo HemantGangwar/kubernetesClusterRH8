@@ -1,4 +1,11 @@
-[kub]
 nodea.lab.example.com
-node11.lab.example.com
-node12.lab.example.com
+nodeb.lab.example.com
+nodec.lab.example.com
+noded.lab.example.com
+master.lab.example.com
+
+# Do not edit the group name and 
+# keep your kubernetes master node name in it as well
+
+[cluster-master]
+master.lab.example.com
