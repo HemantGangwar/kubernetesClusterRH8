@@ -1,6 +1,6 @@
 ---
 - name: ---------------------- | KUBERNETES CLUSTER DEPLOYMENT | ---------------------------------
-  hosts: kub
+  hosts: all
   become: all
   pre_tasks:
   - name: Pre-Requisite-1 |Switching off swap|
