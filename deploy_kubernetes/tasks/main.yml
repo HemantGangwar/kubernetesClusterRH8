@@ -61,13 +61,11 @@
 
   - name: 10. Installing required | Kubernetes | packages
     yum:
-      name:
-      - docker
-      - kubelet
-      - kubectl
-      - kubeadm
+      name: "{{ item }}"
       state: present
       disable_excludes: kubernetes
+    with_items:
+    - "{{ KUBERNET_PACKAGES }}"
 
   - name: 11. Starting |docker , kubelet| service
     service: 
