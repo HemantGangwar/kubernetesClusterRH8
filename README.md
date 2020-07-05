@@ -1,10 +1,11 @@
-INTRODUCTION
-=============
+# INTRODUCTION
+# =============
 
-This playbook is intended to install and configure kubernets 1.17 Cluster on RHEL/CentOS 7,8.
+This playbook is intended to install and configure *KUBERNETES Cluster* on RHEL/CentOS 7,8 by **Kubeadm**.
 
 Read this document carefully to have more understanding about this ansible playbook.
 
+![image](https://user-images.githubusercontent.com/38517925/86524357-5abe9500-be97-11ea-8f15-d997b4ce7d3e.png)
 
 VARIABLES DECLARATION
 -----------------------
@@ -27,7 +28,7 @@ USAGE
 ------------------------
 1. Download this playbook in your ansible server.
 
-# git clone https://github.com/HemantGangwar/kubernetesCluster.git
+git clone https://github.com/HemantGangwar/kubernetesCluster.git
 
 2. Update deploy_kubernetes/defaults/main.yml with required parameter (example entry below)
 
