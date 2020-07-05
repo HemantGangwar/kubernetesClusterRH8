@@ -1,5 +1,5 @@
 # INTRODUCTION
-# =============
+=======================
 
 This playbook is intended to install and configure *KUBERNETES Cluster* on RHEL/CentOS 7,8 by **Kubeadm**.
 
@@ -26,27 +26,17 @@ Replace the hostnames in "inventory" file present here with hostnames of your en
 
 USAGE
 ------------------------
-1. Download this playbook in your ansible server.
 
-git clone https://github.com/HemantGangwar/kubernetesCluster.git
+Sr. No | Description | Commands
+------ | ----------- | --------
+1 | Download this playbook in your ansible server | # git clone https://github.com/HemantGangwar/kubernetesCluster.git
+2 | Enter into the directory created | # cd kubernetesCluster
+3 | Update inventory file provided here with your node names. | # vi inventory
+4 | Update deploy_kubernetes/defaults/main.yml with required parameter | (example) KUBERNETES_MASTER: master.lab.example.com
+5 | Now execute the playbook | # ansible-playbook kubernetes.yml OR ansible-playbook kubernetes.yml -e KUBERNETES_MASTER=master.lab.example.com
 
-2. Update deploy_kubernetes/defaults/main.yml with required parameter (example entry below)
 
-KUBERNETES_MASTER: nodea.lab.example.com
-
-Update your node name and IP which you want to use as kubernetes master.
-
-3. Update inventory file provided here with your node names.
-
-4. kubernetes.yml is the main playbook, you can execute it using
-
-$ ansible-playbook kubernetes.yml 
-
-OR
-
-$ ansible-playbook kubernetes.yml -e KUBERNETES_MASTER=nodea.lab.example.com
-
-5. The playbook is fully idempotent and can be safely used multiple times.
+Note:  *The playbook is fully idempotent and can be safely used multiple times.*
 
 It contains 3 segments:
 
