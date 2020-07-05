@@ -1,5 +1,7 @@
-# INTRODUCTION
+![image](https://user-images.githubusercontent.com/38517925/86527948-5f983e80-bec1-11ea-9be7-03a6cc7792c8.png)
 
+# INTRODUCTION
+---------------
 
 This playbook is intended to install and configure *KUBERNETES Cluster* on RHEL/CentOS 7,8 by **Kubeadm**.
 
@@ -19,7 +21,6 @@ Variables need to declared inside deploy_kubernetes/defaults/main.yml
 3. Other variables declared in deploy_kubernetes/vars/main.yml
 
 ###### INVENTORY SETUP
-
 
 One can use it's own inventory or create it's own inventory.
 Replace the hostnames in "inventory" file present here with hostnames of your environment. 
@@ -47,9 +48,9 @@ It contains 3 segments:
 Execution of playbook can be viewed at : https://www.youtube.com/watch?v=Lns4th54zPM&t=106s
 
 AUTHOR
-========
+--------
 This playbook is written by Hemant Gangwar, you can read more about author at https://learningtechnix.wordpress.com or follow on LinkedIN https://www.linkedin.com/in/hemant-gangwar-6a677b19/
 
 BUG FIXES
-=========
+-----------
 1. In version 30 June 2020 fixed an issue with playbook requiring static master name while joining Kubernetes nodes
