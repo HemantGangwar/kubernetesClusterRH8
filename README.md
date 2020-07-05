@@ -1,5 +1,5 @@
 # INTRODUCTION
-=======================
+
 
 This playbook is intended to install and configure *KUBERNETES Cluster* on RHEL/CentOS 7,8 by **Kubeadm**.
 
@@ -7,7 +7,7 @@ Read this document carefully to have more understanding about this ansible playb
 
 ![image](https://user-images.githubusercontent.com/38517925/86524357-5abe9500-be97-11ea-8f15-d997b4ce7d3e.png)
 
-VARIABLES DECLARATION
+## VARIABLES DECLARATION
 -----------------------
 
 Variables need to declared inside deploy_kubernetes/defaults/main.yml
@@ -18,16 +18,16 @@ Variables need to declared inside deploy_kubernetes/defaults/main.yml
 
 3. Other variables declared in deploy_kubernetes/vars/main.yml
 
-INVENTORY SETUP
-================
+###### INVENTORY SETUP
+
 
 One can use it's own inventory or create it's own inventory.
-Replace the hostnames in "inventory" file present here with hostnames of your environment. You can leave [kub] as it is if you are not making any changes in playbook.
+Replace the hostnames in "inventory" file present here with hostnames of your environment. 
 
-USAGE
+# USAGE
 ------------------------
 
-Sr. No | Description | Commands
+Step | Description | Commands
 ------ | ----------- | --------
 1 | Download this playbook in your ansible server | # git clone https://github.com/HemantGangwar/kubernetesCluster.git
 2 | Enter into the directory created | # cd kubernetesCluster
