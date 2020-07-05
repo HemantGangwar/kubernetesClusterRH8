@@ -50,10 +50,6 @@
       reload: yes
     with_items:
     - "{{ SYSCTL_NF_CALL_RULES }}"
-#  - name: 7. Setting bridged call iptables
-#    copy:
-#      src: bridgedRules
-#      dest: /etc/sysctl.d/k8ruless.conf
 
   - name: 8. Updating bridged iptable rules to kernel
     shell: sysctl --system
@@ -67,9 +63,9 @@
     yum:
       name:
       - docker
-      - kubelet-1.17*
-      - kubectl-1.17*
-      - kubeadm-1.17*
+      - kubelet
+      - kubectl
+      - kubeadm
       state: present
       disable_excludes: kubernetes
 
