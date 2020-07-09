@@ -3,6 +3,9 @@
   hosts: all
   become: all
   pre_tasks:
+  - name: Verifying if enough resources Present
+    fail: msg="Please make sure you have atlest 900 MB RAM and 2 Cores"
+    when: ansible_processor_count < 2 or ansible_memtotal_mb < 900
   - name: Pre-Requisite-1 |Switching off swap|
     shell: swapoff -a
     when: ansible_swaptotal_mb > 0

@@ -9,6 +9,9 @@ Read this document carefully to have more understanding about this ansible playb
 
 ![image](https://user-images.githubusercontent.com/38517925/86524357-5abe9500-be97-11ea-8f15-d997b4ce7d3e.png)
 
+## RESOURCE REQUIREMENTS
+The playbook is intended to run on VM's with **2 cores** and more than **900MB RAM** allocated. So please make sure, we have this much amount of resources available, else the playbook will fail. 
+
 ## VARIABLES DECLARATION
 -----------------------
 
