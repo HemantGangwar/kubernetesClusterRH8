@@ -57,3 +57,4 @@ This playbook is written by Hemant Gangwar, you can read more about author at ht
 BUG FIXES
 -----------
 1. In version 30 June 2020 fixed an issue with playbook requiring static master name while joining Kubernetes nodes
+2. In version 10 July 2020 fixed issue of deprecated, package installation warning. And updated Inventory description.
