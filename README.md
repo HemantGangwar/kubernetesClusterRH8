@@ -5,6 +5,8 @@
 
 This playbook is intended to install and configure *KUBERNETES Cluster* on RHEL/CentOS 7,8 by **Kubeadm**.
 
+**Note**: With RHEL OS you may face issues while installing docker lastest version if the OS is itself on old version.
+
 Read this document carefully to have more understanding about this ansible playbook.
 
 ![image](https://user-images.githubusercontent.com/38517925/86524357-5abe9500-be97-11ea-8f15-d997b4ce7d3e.png)
