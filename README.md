@@ -23,6 +23,11 @@ Variables need to declared inside deploy_kubernetes/defaults/main.yml
 
 3. Other variables declared in deploy_kubernetes/vars/main.yml
 
+###### PRE-REQUISITES
+
+- Basic knowledge of Linux, Git.
+- Key based setup of Ansible
+
 ###### INVENTORY SETUP
 
 One can use it's own inventory or create it's own inventory.
