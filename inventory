@@ -3,15 +3,11 @@
 # Add below all the nodes you want to use in kubernetes cluster
 # including the node which you want to use Kubernetes master
 
-nodea.lab.example.com
-nodeb.lab.example.com
-nodec.lab.example.com
-noded.lab.example.com
-master.lab.example.com
-
+k8-master
+k8-node
 # Do not edit the group name as it is used as variable in Playbook 
 # keep your kubernetes master node name here as well
 # if already defined above
 
 [cluster-master]
-master.lab.example.com
+k8-master

@@ -10,7 +10,7 @@ Read this document carefully to have more understanding about this ansible playb
 ![image](https://user-images.githubusercontent.com/38517925/86524357-5abe9500-be97-11ea-8f15-d997b4ce7d3e.png)
 
 ## RESOURCE REQUIREMENTS
-The playbook is intended to run on VM's with **2 cores** and more than **900MB RAM** allocated. So please make sure, we have this much amount of resources available, else the playbook will fail. 
+The playbook is intended to run on VM's with *atleast* **2 cores** and **900MB RAM** allocated. So please make sure, we have this much amount of resources available, else the playbook will fail. 
 
 ## VARIABLES DECLARATION
 -----------------------
@@ -26,7 +26,9 @@ Variables need to declared inside deploy_kubernetes/defaults/main.yml
 ###### PRE-REQUISITES
 
 - Basic knowledge of Linux, Git.
-- Key based setup of Ansible
+- Base OS repository should be configured.
+- Internet connectivity of VM's (or all required respoitory configured offline)
+- Communication already working between ansible control node and managed nodes.
 
 ###### INVENTORY SETUP
 
@@ -63,3 +65,4 @@ BUG FIXES
 -----------
 1. In version 30 June 2020 fixed an issue with playbook requiring static master name while joining Kubernetes nodes
 2. In version 10 July 2020 fixed issue of deprecated, package installation warning. And updated Inventory description.
+3. In version 5 Aug 2020 fixed dependency issue used in case of RedHat OS.

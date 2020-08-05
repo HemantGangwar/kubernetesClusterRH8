@@ -59,11 +59,17 @@
       src: kubernetesRepo
       dest: /etc/yum.repos.d/kubernetes.repo
 
+  - name: 9.x Deploying additional repository if OS is Redhat
+    copy:
+      src: extraRepo
+      dest: /etc/yum.repos.d/extra.repo
+    when: ansible_distribution == 'RedHat'
+
   - name: 10. Installing required | Kubernetes | packages
     yum:
       name: "{{ KUBERNET_PACKAGES }}"
       state: present
-      disable_excludes: kubernetes
+#      disable_excludes: kubernetes
 
   - name: 11. Starting |docker , kubelet| service
     service: 
