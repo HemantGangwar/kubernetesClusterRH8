@@ -13,6 +13,12 @@
       path: swap
       state: absent
 
+  - name: 2.5 Making sure that firewalld is running
+    service:
+      name: firewalld
+      state: started
+      enabled: true
+
   - name: 3. Setting up firewall rules for master
     firewalld:
       port: "{{ item }}/tcp"
