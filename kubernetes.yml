@@ -4,8 +4,8 @@
   become: all
   pre_tasks:
   - name: Verifying if enough resources Present
-    fail: msg="Please make sure you have atlest 900 MB RAM and 2 Cores"
-    when: ansible_processor_count < 2 or ansible_memtotal_mb < 900
+    fail: msg="Please make sure you have atlest 2000 MB RAM and 2 Cores"
+    when: ansible_processor_count < 2 or ansible_memtotal_mb < 2000
   - name: Pre-Requisite-1 |Switching off swap|
     shell: swapoff -a
     when: ansible_swaptotal_mb > 0
@@ -25,4 +25,4 @@
     args: 
       creates: /tmp/weave_network.txt
     when: inventory_hostname in groups["cluster-master"]
-  
+ 
