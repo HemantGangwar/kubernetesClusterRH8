@@ -59,6 +59,17 @@ It contains 3 segments:
 
 Execution of playbook can be viewed at : https://www.youtube.com/watch?v=Lns4th54zPM&t=106s
 
+![image](https://user-images.githubusercontent.com/38517925/114188843-28cae980-9967-11eb-9fdb-89197217d8b7.png)
+![image](https://user-images.githubusercontent.com/38517925/114188938-4304c780-9967-11eb-820a-36cd2a33ec91.png)
+![image](https://user-images.githubusercontent.com/38517925/114189070-692a6780-9967-11eb-9777-a9bcaf81a3c6.png)
+![image](https://user-images.githubusercontent.com/38517925/114189125-76dfed00-9967-11eb-8bc3-00ba2fa3c75a.png)
+![image](https://user-images.githubusercontent.com/38517925/114189164-82331880-9967-11eb-9daf-9091c4847f17.png)
+![image](https://user-images.githubusercontent.com/38517925/114189224-970fac00-9967-11eb-91ef-717d9a9780c6.png)
+![image](https://user-images.githubusercontent.com/38517925/114189803-3a60c100-9968-11eb-99ad-7b97a39e988a.png)
+![image](https://user-images.githubusercontent.com/38517925/114189869-4cdafa80-9968-11eb-9bc7-c5f3f7203ad8.png)
+![image](https://user-images.githubusercontent.com/38517925/114189904-57958f80-9968-11eb-8600-bfadaa100a72.png)
+
+
 AUTHOR
 --------
 This playbook is written by Hemant Gangwar, you can read more about author at https://learningtechnix.wordpress.com or follow on LinkedIN https://www.linkedin.com/in/hemant-gangwar-6a677b19/
