@@ -1,7 +1,7 @@
 ---
 - name: ---------------------- | KUBERNETES CLUSTER DEPLOYMENT | ---------------------------------
   hosts: all
-  become: all
+  become: true
   pre_tasks:
   - name: Verifying if enough resources Present
     fail: msg="Please make sure you have atlest 2000 MB RAM and 2 Cores"
