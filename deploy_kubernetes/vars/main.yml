@@ -22,15 +22,14 @@ FIREWALL_PORTS_WORKER:
 SYSCTL_NF_CALL_RULES:
  - net.bridge.bridge-nf-call-ip6tables
  - net.bridge.bridge-nf-call-iptables
+ - net.ipv4.ip_forward
  
 KUBERNET_PACKAGES:
- - docker
  - kubelet
  - kubectl
  - kubeadm
 
 KUBERNET_SERVICES:
- - docker
  - kubelet
 
 POST_INITIALIZATION_COMMANDS:

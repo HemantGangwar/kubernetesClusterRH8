@@ -3,11 +3,12 @@
 # Add below all the nodes you want to use in kubernetes cluster
 # including the node which you want to use Kubernetes master
 
-k8-master
-k8-node
+kubmas
+kubclient1
+kubclient2
 # Do not edit the group name as it is used as variable in Playbook 
 # keep your kubernetes master node name here as well
 # if already defined above
 
 [cluster-master]
-k8-master
+kubmas
