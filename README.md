@@ -23,7 +23,9 @@ Variables need to declared inside deploy_kubernetes/defaults/main.yml
 
 2. MASTER_IP_ADDRESS => IP address of the above kubernetes master 
 
-3. Other variables declared in deploy_kubernetes/vars/main.yml
+3. CRIOVERSION => Required CRIO repository version
+
+4. Other variables declared in deploy_kubernetes/vars/main.yml
 
 ###### PRE-REQUISITES
 
@@ -79,3 +81,4 @@ BUG FIXES
 1. In version 30 June 2020 fixed an issue with playbook requiring static master name while joining Kubernetes nodes
 2. In version 10 July 2020 fixed issue of deprecated, package installation warning. And updated Inventory description.
 3. In version 5 Aug 2020 fixed dependency issue used in case of RedHat OS.
+4. In version 8 July 2022, it is updated to incorporate CRIO deployment as well.

@@ -21,8 +21,8 @@
 
   post_tasks:
   - name: Post-Requisite Configuring | weave | network
-    shell: kubectl apply -f https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n') >> /tmp/weave_network.txt
+    shell: kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')" >> /tmp/weave_network.txt
     args: 
       creates: /tmp/weave_network.txt
-    when: inventory_hostname in groups["cluster-master"]
+    when: inventory_hostname in groups["clustermaster"]
  

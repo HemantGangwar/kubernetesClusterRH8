@@ -3,4 +3,4 @@
   shell: "{{ hostvars[item].kubernetes_join_workers }}"
   args:
     creates: /etc/kubernetes/kubelet.conf
-  with_items: "{{ groups['cluster-master'] }}"
+  with_items: "{{ groups['clustermaster'] }}"

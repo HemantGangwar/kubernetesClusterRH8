@@ -39,29 +39,28 @@
       - "{{ FIREWALL_PORTS_WORKER }}"
     when: KUBERNETES_MASTER not in inventory_hostname
 
-  - name: Setting up to install the traffic control utility package
+  - name: 5. Installing the traffic control utility package
     yum: 
       name: iproute-tc
       state: latest
 
-  - name: Create a modules configuration file for Kubernetes
+  - name: 6. Create a modules configuration file for Kubernetes
     copy:
       src: k8s.conf
       dest: /etc/modules-load.d/k8s.conf
 
-  - name: 5. netfilter module checking
-    shell: lsmod | grep "^br_netfilter" | wc -l
+  - name: 7. netfilter module checking
+    shell: lsmod | egrep -i "^br_netfilter|^overlay" | wc -l
     register: netfilermodule
 
-  - name: 6. Installing | overlay, br_netfilter | module
+  - name: 8. Installing | overlay, br_netfilter | module
     shell: modprobe {{ item }}
     loop:
     - br_netfilter
     - overlay
-    when: netfilermodule.stdout  == '0' 
 
 
-  - name: 7. Setting bridged call iptables sysctl rules
+  - name: 9. Setting bridged call iptables sysctl rules
     sysctl:
       name: "{{ item }}"
       value: '1'
@@ -70,50 +69,44 @@
     with_items:
     - "{{ SYSCTL_NF_CALL_RULES }}"
 
-  - name: 8. Updating bridged iptable rules to kernel
+  - name: 10. Updating bridged iptable rules to kernel
     shell: sysctl --system
 
-  - name: Setup the crio repository
+  - name: 11. Setup the crio repository
     shell: "{{ item }}"
     loop:
     - "curl -L -o /etc/yum.repos.d/devel:kubic:libcontainers:stable.repo https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/CentOS_8/devel:kubic:libcontainers:stable.repo"
     - "curl -L -o /etc/yum.repos.d/devel:kubic:libcontainers:stable:cri-o:{{ CRIOVERSION }}.repo https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable:cri-o:{{ CRIOVERSION }}/CentOS_8/devel:kubic:libcontainers:stable:cri-o:{{ CRIOVERSION }}.repo" 
   
-  - name: Deploy CRIO package
+  - name: 12. Deploy CRIO package
     yum:
       name: cri-o
       state: latest
 
-  - name: Start the CRIO service
+  - name: 13. Start the CRIO service
     service:
       name: cri-o
       state: started
       enabled: true
  
-  - name: 9. Setting up required Kubernetes repository
+  - name: 14. Setting up required Kubernetes repository
     copy:
       src: kubernetesRepo
       dest: /etc/yum.repos.d/kubernetes.repo
 
-  - name: 9.x Deploying additional repository if OS is Redhat
+  - name: 15. Deploying additional repository if OS is Redhat
     copy:
       src: extraRepo
       dest: /etc/yum.repos.d/extra.repo
     when: ansible_distribution == 'RedHat' and ansible_distribution_major_version != '8'
   
-  
-#  - block:
-#    - name: Step 1
-#      package: name=yum-utils state=latest
-#    - name: Step 2
-#      shell: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-  - name: Installing kubernets packages
+  - name: 16. Install | KUBERNETES | related packages    
     yum:
         name: "{{ KUBERNET_PACKAGES }}"
         state: present
         disable_excludes: kubernetes
 
-  - name: 11. Starting | kubelet| service
+  - name: 17. Starting | kubelet| service
     service: 
       name: "{{ item }}"
       state: started
@@ -121,19 +114,19 @@
     with_items:
     - "{{ KUBERNET_SERVICES }}"
 
-  - name: 12. Check if Kubernetes has already been initialized.
+  - name: 18. Check if Kubernetes has already been initialized.
     stat:
       path: /etc/kubernetes/admin.conf
     register: kubernetes_init_stat
 
-  - name: 13. [ ------------------------ | Master Setup | ----------------------
+  - name: 19. [ ------------------------ | Master Setup | ----------------------
     include_tasks: k8-master-setup.yml
     when: KUBERNETES_MASTER in inventory_hostname
 
-  - name: 14. [ ------------------------ | Nodes/Worker Setup | ----------------
+  - name: 20. [ ------------------------ | Nodes/Worker Setup | ----------------
     include_tasks: k8-worker-setup.yml
     when: KUBERNETES_MASTER not in inventory_hostname
 
-  - name: 15. Ending with role deployment
+  - name: 21. Ending with role deployment
     debug:
       msg: "Kuberenetes deployment ended ... "
