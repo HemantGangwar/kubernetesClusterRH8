@@ -59,17 +59,19 @@ It contains 3 segments:
 2. A role named deploy_kubernetes containing master and worker deployment.
 3. Post-Requisite taking care of setting up Networking(weave) for Cluster. 
 
-Execution of playbook can be viewed at : https://www.youtube.com/watch?v=Lns4th54zPM&t=106s
+Execution of playbook can be viewed below:
 
-![image](https://user-images.githubusercontent.com/38517925/114188843-28cae980-9967-11eb-9fdb-89197217d8b7.png)
-![image](https://user-images.githubusercontent.com/38517925/114188938-4304c780-9967-11eb-820a-36cd2a33ec91.png)
-![image](https://user-images.githubusercontent.com/38517925/114189070-692a6780-9967-11eb-9777-a9bcaf81a3c6.png)
-![image](https://user-images.githubusercontent.com/38517925/114189125-76dfed00-9967-11eb-8bc3-00ba2fa3c75a.png)
-![image](https://user-images.githubusercontent.com/38517925/114189164-82331880-9967-11eb-9daf-9091c4847f17.png)
-![image](https://user-images.githubusercontent.com/38517925/114189224-970fac00-9967-11eb-91ef-717d9a9780c6.png)
-![image](https://user-images.githubusercontent.com/38517925/114189803-3a60c100-9968-11eb-99ad-7b97a39e988a.png)
-![image](https://user-images.githubusercontent.com/38517925/114189869-4cdafa80-9968-11eb-9bc7-c5f3f7203ad8.png)
-![image](https://user-images.githubusercontent.com/38517925/114189904-57958f80-9968-11eb-8600-bfadaa100a72.png)
+![image](https://user-images.githubusercontent.com/38517925/177979974-9521973f-f3de-430a-810b-65c169b4301f.png)
+![image](https://user-images.githubusercontent.com/38517925/177980143-d6d2a6bb-2314-4e04-9e50-9b446f5874c6.png)
+![image](https://user-images.githubusercontent.com/38517925/177980217-8e310838-0841-4c7f-afb4-ed1863908d00.png)
+![image](https://user-images.githubusercontent.com/38517925/177980304-4d566c44-92c8-4d25-a09f-8f750834fb8c.png)
+![image](https://user-images.githubusercontent.com/38517925/177980386-7be5141d-22a5-4179-b411-1b4f163e0512.png)
+![image](https://user-images.githubusercontent.com/38517925/177980522-4188b252-31c9-4d5c-b7cf-b26d23cfee4f.png)
+![image](https://user-images.githubusercontent.com/38517925/177980575-50233602-bb99-4c38-8742-610d2e86904b.png)
+![image](https://user-images.githubusercontent.com/38517925/177981041-ff4ae712-8c0e-4d06-91e8-f2470b37ca10.png)
+![image](https://user-images.githubusercontent.com/38517925/177981058-e8f836e2-d570-48a1-afb7-8421d3e196dd.png)
+![image](https://user-images.githubusercontent.com/38517925/177981098-59b7abe7-68b3-4854-9cb9-73914a82675d.png)
+
 
 
 AUTHOR
