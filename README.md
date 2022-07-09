@@ -44,8 +44,8 @@ Replace the hostnames in "inventory" file present here with hostnames of your en
 
 Step | Description | Commands
 ------ | ----------- | --------
-1 | Download this playbook in your ansible server | # git clone https://github.com/HemantGangwar/kubernetesCluster.git
-2 | Enter into the directory created | # cd kubernetesCluster
+1 | Download this playbook in your ansible server | # git clone https://github.com/HemantGangwar/kubernetesClusterRH8.git
+2 | Enter into the directory created | # cd kubernetesClusterRH8
 3 | Update inventory file provided here with your node names. | # vi inventory
 4 | Update deploy_kubernetes/defaults/main.yml with required parameter | (example) KUBERNETES_MASTER: master.lab.example.com
 5 | Now execute the playbook | # ansible-playbook kubernetes.yml OR ansible-playbook kubernetes.yml -e KUBERNETES_MASTER=master.lab.example.com
