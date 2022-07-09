@@ -59,7 +59,7 @@ It contains 3 segments:
 2. A role named deploy_kubernetes containing master and worker deployment.
 3. Post-Requisite taking care of setting up Networking(weave) for Cluster. 
 
-Execution of playbook can be viewed below:
+Execution of playbook can be viewed on https://youtu.be/x7l7Ne2jvsw
 
 ![image](https://user-images.githubusercontent.com/38517925/177979974-9521973f-f3de-430a-810b-65c169b4301f.png)
 ![image](https://user-images.githubusercontent.com/38517925/177980143-d6d2a6bb-2314-4e04-9e50-9b446f5874c6.png)
